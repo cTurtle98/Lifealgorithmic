@@ -12,7 +12,7 @@ help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 upload:
-	gsutil rsync -r build/html gs://lifealgorithmic
+	gsutil rsync -r build/html gs://www.lifealgorithmic.com
 
 .PHONY: help Makefile upload
 
