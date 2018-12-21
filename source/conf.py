@@ -105,7 +105,8 @@ html_theme_options = {
     # Note the "1" or "True" value above as the third argument to indicate
     # an arbitrary url.
     'navbar_links': [
-        ("CIS-15", "cis-15"),
+        ("CIS-15-1,2", "cis-15a"),
+        ("CIS-15-3", "cis-15w"),
         ("CIS-54", "cis-54"),
         ("CIS-191", "cis-191"),
     ],

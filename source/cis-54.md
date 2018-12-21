@@ -1,63 +1,59 @@
-# CIS 191 - Spring 2019
+# CIS 54 - Spring 2019
 
-## UNIX/Linux Server Administration
+## Introduction to Client/Server Relational Database Management Systems
 
 ### Course Calendar 
 
-| Week | Date | Topic | Reading | Project |
-| - | - | - | - | - |
-| 1 | 1/31 | Welcome | | | | 
-| 2 | 2/7 | System Administration | Chapters 1 and 4 | | | 
-| 3 | 2/14 | Boot Loaders and Booting | Chapter 3 | | | 
-| 4 | 2/21 | Files, Filesystems and Block Devices | Chpater 6 | | | 
-| 5 | 2/28 | Partitioning Disks | Chpater 8 | | | 
-| 6 | 3/7 | RAID | Chapter 8 | | | 
-| 7 | 3/14 | Logical Volume Management | Chapter 7 | | | 
-| 8 | 3/21 | Midterm | | | | 
-| 9 | 3/28 | Spring Break | | | | 
-| 10 | 4/4 | User Accounts and Groups | Chapters 5 and 9 | | | 
-| 11 | 4/11 | Controlling Processes | Chapter 11 | | | 
-| 12 | 4/18 | System Monitoring and Logging | Chapter 10 | | | 
-| 13 | 4/25 | Package Management | Chapter 12 | | | 
-| 14 | 5/2 | Kernel Customization | Chapter 13 | | | 
-| 15 | 5/9 | Virtualization | Chapter 24 | | | 
-| 16 | 5/16 | Docker Containers | | | | 
-| 17 | 5/21 | Final Exam | | | | 
+| Week | Date | Topic |
+| - | - | - | 
+| 1 | 1/31 | Welcome | | 
+| 2 | 2/7 | Introduction to DBMS | 
+| 3 | 2/14 | The Relational Model |
+| 4 | 2/21 | The Relational Model |
+| 5 | 2/28 | The Relational Model | 
+| 6 | 3/7 | SQL - Selects | 
+| 7 | 3/14 | SQL - Selects | 
+| 8 | 3/21 | Midterm | 
+| 9 | 3/28 | Spring Break | 
+| 10 | 4/4 | SQL - Creating Tables | 
+| 11 | 4/11 | SQL - Subqueries and Joins | 
+| 12 | 4/18 | SQL - Outer Joins | 
+| 13 | 4/25 | Data Modeling | 
+| 14 | 5/2 | Database Design |
+| 15 | 5/9 | Transactions and Concurrency | 
+| 16 | 5/16 | Database Security | 
+| 17 | 5/21 | Final Exam | 
 
 
 ### Course Description
 
-Introduces skills required to administer UNIX/Linux systems. Skills include installing and configuring a popular distribution, such as RedHat Linux, maintaining file and file system structures, distributing and monitoring processes, starting and stopping the system for routine maintenance and troubleshooting, rebuilding and upgrading the kernel, configuring peripheral devices such as printers and modems, backing up and restoring files, and disaster recovery. Develops skills through using both graphical and command line user interfaces, and will be demonstrated by building a custom version of Linux. Prepares students for several industry standard Linux certifications.
+Teaches the the use and administration of a Client/Server Relational Database Management System. Covers the installation and administration of MySQL Client/Server Relational Database Management Installation along with the design, creation and administration of enterprise databases, performance tuning, security, and disaster recovery. Additional topics include: SQL (Structured Query Language), data types, functions, normalization, and a brief introduction to server-level programming and language interfaces for developing database-driven websites, emphasizing PHP systems. May be offered in a Distance-Learning Format.
 
 ### Student Learner Outcomes
 
-  - Manage filesystems
-  - Manage and customize user and group accounts
-  - Implement system performance optimization
+  - Implement and analyze databases.
+  - Maintain database management systems and data.
   
 ### Objectives
 
-  - Describe the structural components of Unix/Linux systems and outline the similarities and differences among various distributions.
-  - Contrast command line and graphical user interfaces and evaluate the tradeoffs between the two.
-  - Install a UNIX/Linux System as a workstation or server to meet the needs of a small to medium company.
-  - Demonstrate a knowledge of boot loaders by configuring two operating systems to dual boot, and by recovering a system that won't boot.
-  - Define and customize the run levels into which a server will boot.
-  - Bring a system down and back up again after reorganizing or expanding storage space.
-  - Transfer files from one system to another using network protocols or removable storage devices.
-  - Configure a graphical desktop environment by editing the configuration files for the X Windows server, a window manager, and appropriate graphical clients.
-  - Use online manual pages and Internet web sites to discover proper command usage or how to use a new utility.
-  - Create, modify and delete user accounts and groups, and customize user profiles to meet specified security and productivity needs.
-  - Add, update and remove software packages using an appropriate package installation tool.
-  - Configure and manage terminals, modems, and printers.
-  - Configure system logging to collect information needed for troubleshooting and correcting system problems.
-  - Maintain optimal system performance by monitoring disk usage, scheduling processes, and removing resource bottlenecks.
-  - Perform a complete system backup and restore the system with that backup.
-  - Recover lost files and forgotten passwords.
-  - Restore an unstable system by identifying and removing one or more errant processes.
-  - Maintain operating system currency by upgrading to a new kernel and applying supplemental patches.
-  - Configure system and kernel resources by recompiling the kernel.
-  - Transform a single user workstation into a multiuser server.
-  - Explain the use of various commands used by a system administrator.
+  - Discuss the functionality of relational database management systems.
+  - Install a relational database management system.
+  - Apply administration utilities to administer a database management system.
+  - Identify how information is physically stored in a database.
+  - Synthesize a database query using SQL.
+  - Write and debug SQL statements inserting, updating, and deleting records in a database.
+  - Create and drop user databases.
+  - Create, rename, modify, and delete tables and indexes.
+  - Design a database with efficient data retrieval that is easy to maintain.
+  - Populate a database using import methods and database transfer tools.
+  - Describe and implement transactions and locking.
+  - Describe and perform the process of securing a database.
+  - Analyze the security of a database installation.
+  - Describe the security architecture in a database and assign user privileges.
+  - Discuss security best practices.
+  - Administer repair of a corrupted database.
+  - Create and implement a backup and restore strategy.
+  - Describe and implement methods for optimizing database performance.
 
 ### Grading Policy
 
