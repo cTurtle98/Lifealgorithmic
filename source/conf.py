@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Lifealgorithmic'
+project = 'lifealgorithmic'
 copyright = '2018, Michael Matera'
 author = 'Michael Matera'
 
