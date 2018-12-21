@@ -1,2 +1,4 @@
 sphinx
 sphinx-markdown-tables
+sphinx_bootstrap_theme
+recommonmark
