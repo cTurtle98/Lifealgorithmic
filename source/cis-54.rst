@@ -68,4 +68,4 @@ Grading Policy
 * 20% Midterm
 * 20% Final
 
-.. include:: leagal.rst
+.. include:: legal.rst
