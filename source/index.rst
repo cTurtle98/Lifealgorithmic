@@ -7,9 +7,28 @@ Mike Matera - CIS
 ===========================================
 
 .. raw:: html
-	 
-	 <iframe src="https://calendar.google.com/calendar/b/4/embed?showTitle=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=mimatera%40cabrillo.edu&amp;color=%2329527A&amp;ctz=America%2FLos_Angeles" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
+   <style>
+	 .googleCalendar{
+	 position: relative;
+	 height: 0;
+	 width: 100%;
+	 height: 600px;
+	 padding-bottom: 50%;
+	 }
+
+	 .googleCalendar iframe{
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 width: 100%;
+	 height: 100%;
+	 }
+   </style>
+   <div class="googleCalendar">
+	 <iframe src="https://calendar.google.com/calendar/b/4/embed?showTitle=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=mimatera%40cabrillo.edu&amp;color=%2329527A&amp;ctz=America%2FLos_Angeles" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+   </div>
+   
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
