@@ -92,7 +92,7 @@ html_theme = 'bootstrap'
 
 html_theme_options = {
     # Navigation bar title. (Default: ``project`` value)
-    'navbar_title': "Mike Matera",
+    'navbar_title': "Home",
 
     # Tab name for entire site. (Default: "Site")
     'navbar_site_name': "Site",
