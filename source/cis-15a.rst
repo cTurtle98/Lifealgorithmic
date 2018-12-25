@@ -3,7 +3,7 @@ CIS 15 - Spring 2019
 
 **Introduction to Cloud Programming in Python**
 
-Sections 1 and 2 (Aptos) 
+Sections 1 (Online) and 2 (Aptos) 
 
 Course Calendar
 ---------------
