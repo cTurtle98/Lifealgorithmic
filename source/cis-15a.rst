@@ -3,6 +3,8 @@ CIS 15 - Spring 2019
 
 **Introduction to Cloud Programming in Python**
 
+Sections 1 (Online) and 2 (Aptos) 
+
 .. cssclass:: course-basics table-striped
 
 ================ ===================================================
@@ -14,8 +16,6 @@ CIS 15 - Spring 2019
 **Links**        | `Canvas <https://cabrillo.instructure.com>`_ 
                  | `Cloud9 IDE <https://957903271915.signin.aws.amazon.com/console>`_
 ================ ===================================================
-
-Sections 1 (Online) and 2 (Aptos) 
 
 Course Calendar
 ---------------
