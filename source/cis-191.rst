@@ -3,6 +3,17 @@ CIS 191 - Spring 2019
 
 **UNIX/Linux Server Administration**
 
+.. cssclass:: course-basics table-striped
+	    
+================ ===================================================
+**Time**         Thursdays 10:15am to 2:20pm 
+**Room**         Room 829 Aptos and Online
+**Lab**          Open Lab - 1 hour per week TBA                   
+**Units**        4                                                
+**Book**                                                         
+**Links**        | `Canvas <https://cabrillo.instructure.com>`_ 
+================ ===================================================
+
 Course Calendar 
 ----------------
 

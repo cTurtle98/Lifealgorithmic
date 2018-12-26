@@ -3,6 +3,18 @@ CIS 15 - Spring 2019
 
 **Introduction to Cloud Programming in Python**
 
+.. cssclass:: course-basics table-striped
+
+================ ===================================================
+**Time**         Fridays 10:00am to 2:05pm                      
+**Room**         Room 828 Aptos Campus and Online                       
+**Lab**          Open Lab - 1 hour per week TBA                   
+**Units**        4                                                
+**Book**                                                         
+**Links**        | `Canvas <https://cabrillo.instructure.com>`_ 
+                 | `Cloud9 IDE <https://957903271915.signin.aws.amazon.com/console>`_
+================ ===================================================
+
 Sections 1 (Online) and 2 (Aptos) 
 
 Course Calendar

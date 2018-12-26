@@ -1,0 +1,19 @@
+
+
+.course-basics {
+    max-width: 750px;
+}    
+
+/*
+@media screen and (min-width: 400px) {
+  .course-basics {
+    background-color: lightgreen;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .course-basics {
+    background-color: purple;
+  }
+}
+*/
