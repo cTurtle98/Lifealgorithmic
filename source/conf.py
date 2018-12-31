@@ -20,7 +20,7 @@ import sphinx_bootstrap_theme
 
 # -- Project information -----------------------------------------------------
 
-project = 'lifealgorithmic'
+project = 'Cabrillo courses'
 copyright = '2018, Michael Matera'
 author = 'Michael Matera'
 
