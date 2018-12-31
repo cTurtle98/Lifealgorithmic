@@ -56,12 +56,12 @@ These are the classes I'm teaching in the Spring. You can find course pages usin
 	   <p>Technology inspires me and I'm grateful to be able to share my love of tech with students. I've been an instructor at <a href="http://www.cabrillo.edu" target="_blank">Cabrillo College</a> since 2013. In that time I've taught many CIS and CS classes.</p>
 
 	 <ul>
-	 <li><b>Programming</b> is my passion and I've taught classes in in <b>Python</b> (CIS-15), <b>C++</b> (CS-11M) and <b>BASH</b> (CIS-98)</li>
+	 <li><b>Programming</b> is my passion and I've taught classes in <b>Python</b> (CIS-15), <b>C++</b> (CS-11M) and <b>BASH</b> (CIS-98)</li>
 	 <li><b>Information Security</b> is more important than ever with a booming job market. I've taught Cabrillo's introduction to computer security (CIS-75) and forensics (CIS-77) classes.</li>
 	 <li><b>Databases</b> are an integral part of most modern applications. CIS-54 is an introduction to relational database management systems. </li>
 	 <li><b>Networking</b> is how we turn computers into working systems and the cloud. I've taught the introduction to networking (CIS-81) and how to debug networks using <a href="http://www.wireshark.org" target="_blank">Wireshark</a> (CIS-140NA)</li>
 	 <li>I'm a <b>Linux</b> expert and I've taught Cabrillo's advanced Linux courses, CIS-191, CIS-192 and CIS-193.</li>
-	 <li><b>Windows</b> is the perferred operating system for work. I've taught all of Cabrillo's advanced Windows classes (CIS-194, CIS-195 and CIS-196).  
+	 <li><b>Windows</b> is the preferred operating system for work. I've taught all of Cabrillo's advanced Windows classes (CIS-194, CIS-195 and CIS-196).  
 	 </ul>
    <h4>Professional Experience</h4>
    <p>Prior to working at Cabrillo I spent 15 years at <a href="http://www.xilinx.com" target="_blank">Xilinx</a> INC. Xilinx is the world's leading supplier of <a href="https://en.wikipedia.org/wiki/Field-programmable_gate_array", target="_blank">Field Programmable Gate Arrays</a>, a type of microchip that is programmed to emulate other chips. I began my career as a logic designer, producing self-test circuits and have three circuit patents.</p>
