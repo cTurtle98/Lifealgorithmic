@@ -13,6 +13,8 @@ Mike Matera - CIS @ Cabrillo College
    <a href="https://wave.cabrillo.edu" target="_blank">Regsiter on WebAdvisor</a>
    </div>
 
+   <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+   	 
 Spring 2019 Classes
 -------------------
 
@@ -53,6 +55,7 @@ These are the classes I'm teaching in the Spring. You can find course pages usin
 	 </div>
 	 <div class="col-md-6">
 	   <h2>About Me</h2>
+	   <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="horizontal" data-theme="light" data-vanity="mike-matera-42b875"><a class="LI-simple-link" href='https://www.linkedin.com/in/mike-matera-42b875?trk=profile-badge'>Mike Matera</a></div>
 	   <p>Technology inspires me and I'm grateful to be able to share my love of tech with students. I've been an instructor at <a href="http://www.cabrillo.edu" target="_blank">Cabrillo College</a> since 2013. In that time I've taught many CIS and CS classes.</p>
 
 	 <ul>
@@ -64,17 +67,10 @@ These are the classes I'm teaching in the Spring. You can find course pages usin
 	 <li><b>Windows</b> is the preferred operating system for work. I've taught all of Cabrillo's advanced Windows classes (CIS-194, CIS-195 and CIS-196).  
 	 </ul>
    <h4>Professional Experience</h4>
-   <p>Prior to working at Cabrillo I spent 15 years at <a href="http://www.xilinx.com" target="_blank">Xilinx</a> INC. Xilinx is the world's leading supplier of <a href="https://en.wikipedia.org/wiki/Field-programmable_gate_array", target="_blank">Field Programmable Gate Arrays</a>, a type of microchip that is programmed to emulate other chips. I began my career as a logic designer, producing self-test circuits and have three circuit patents.</p>
-	 <ul>
-	 <li><a href="https://patents.google.com/patent/US6239611B1/" target="_blank">Circuit and method for testing whether a programmable logic device complies with a zero-hold-time requirement</a></li>
-	 <li><a href="https://patents.google.com/patent/US6651238B1/" target="_blank">Providing fault coverage of interconnect in an FPGA</a></li>
-	 <li><a href="https://patents.google.com/patent/US8212576B1/" target="_blank">Method and apparatus for self-regulated burn-in of an integrated circuit</a></li>
-	 </ul>
+   <p>Prior to working at Cabrillo I spent 15 years at <a href="http://www.xilinx.com" target="_blank">Xilinx</a> INC. Xilinx is the world's leading supplier of <a href="https://en.wikipedia.org/wiki/Field-programmable_gate_array", target="_blank">Field Programmable Gate Arrays</a>, a type of microchip that is programmed to emulate other chips. I began my career as a logic designer, producing self-test circuits and have three circuit patents: <a href="https://patents.google.com/patent/US6239611B1/" target="_blank">US6239611B1</a>, <a href="https://patents.google.com/patent/US6651238B1/" target="_blank">US6651238B1</a>, <a href="https://patents.google.com/patent/US8212576B1/" target="_blank">US8212576B1</a></p>
 	 <p>My career at Xilinx was varied and I did significant programming work in <b>PERL</b>, <b>C++</b> and <b>Java</b>. I designed and constructed <b>embedded Linux systems</b>, producing purpose built test platforms with corresponding Linux drivers and software. I wrote a domain specific programming language to simplify the process of testing embedded systems using <b><a href="http://www.antlr.org" target="_blank">ANTLR</a></b>. I designed, built and maintained <b>datacenters</b> that provide world wide access to special-purpose test hardware.</p>
 	 <h4>Education</h4>
 	 <p>I have a B.S. in Computer Engineering from <a href="http://www.ucsc.edu" target="_blank">UC Santa Cruz</a></p>
-	 
-	 <img style="width:80%; display:block; margin-left:auto; margin-right:auto;" src="_static/images/mike_electronics_japan.jpg"/>
 	 </div>
    </div>
   
