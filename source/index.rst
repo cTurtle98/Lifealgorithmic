@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Mike Matera - CIS @ Cabrillo College
-=================
+====================================
 
 .. raw:: html
 

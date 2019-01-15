@@ -15,7 +15,7 @@ It is important to have an effective, distraction-free classroom environment for
  
 For students in the physical classroom, computers can be turned on for viewing lecture slides locally, Google-ing related technical information, and doing classroom exercises. A student's full attention is desired so the computers should not be used during lecture for email or anything that would distract them or others from the material being taught.
  
-For students in the virtual classroom, use the "Raise hand" icon in CCC Confer to let the instructor know you have a question. The chat window can be used to ask questions and communicate with the instructor or other classmates. For students dialing in please use *6 on your phone to mute/unmute your line so background noises in your location don't distract the class.
+For students in the virtual classroom, use the "Raise hand" icon in CCC Confer to let the instructor know you have a question. The chat window can be used to ask questions and communicate with the instructor or other classmates. For students dialing in please use \*6 on your phone to mute/unmute your line so background noises in your location don't distract the class.
  
 Please plan on coming to all classes. If class will be missed let the instructor know ahead of time. It is the student's responsibility to get any missed material or information from other classmates (the forum is a good way to do this). Please note that being disruptive is grounds for being dropped from the class by the instructor.
  
