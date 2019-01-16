@@ -3,27 +3,24 @@ CIS 191 - Spring 2019
 
 **UNIX/Linux Server Administration**
 
-.. cssclass:: course-basics table-striped
-	    
-================ ===================================================================================================================
-**Time**         Thursdays 10:15am to 2:20pm 
-**Room**         Room 829 Aptos and Online
-**Lab**          Open Lab - 1 hour per week TBA                   
-**Units**        4                                                
-**Book**         | UNIX and Linux System Administration Handbook (4th Edition)
-                 | Evi Nemeth, Garth Snyder, Trent R. Hein, Ben Whaley
-                 | Prentice Hall PTR
-                 | `ISBN: 978-0131480056 <https://www.google.com/search?q=978-0131480056>`_
-                 | (Optional)
-**Links**        `Canvas <https://cabrillo.instructure.com>`_
-================ ===================================================================================================================
+:Time: Thursdays 10:15am to 2:20pm
+:Room: Room 829 Aptos and Online
+:Lab: Open Lab - 1 hour per week TBA
+:Units: 4
+:Book:
+ | UNIX and Linux System Administration Handbook (4th Edition)
+ | Evi Nemeth, Garth Snyder, Trent R. Hein, Ben Whaley
+ | Prentice Hall PTR
+ | `ISBN: 978-0131480056 <https://www.google.com/search?q=978-0131480056>`_
+ | (Optional)
+:Links: `Canvas <https://cabrillo.instructure.com>`_
 
-Course Calendar 
+Course Calendar
 ----------------
 
-====  ====  ==================================== ================ ======= 
+====  ====  ==================================== ================ =======
 Week  Date  Topic                                Reading          Project
-====  ====  ==================================== ================ ======= 
+====  ====  ==================================== ================ =======
 1     1/31  `Welcome <cis-191/welcome.html>`_
 2     2/7   System Administration                Chapters 1 & 4
 3     2/14  Boot Loaders and Booting             Chapter 3 
@@ -43,6 +40,7 @@ Week  Date  Topic                                Reading          Project
 17    5/21  Final Exam 
 ====  ====  ==================================== ================ ======= 
 
+.. _test:
 
 Course Description
 ------------------

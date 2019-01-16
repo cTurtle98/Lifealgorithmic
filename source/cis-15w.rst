@@ -5,17 +5,14 @@ CIS 15 - Spring 2019
 
 Section 3 (Watsonville) 
 
-.. cssclass:: course-basics table-striped
-	      
-================ ===================================================
-**Time**         Wednesdays 2:30pm to 4:35pm                      
-**Room**         Room WatC105 Watsonville Campus                       
-**Lab**          Open Lab - 1 hour per week TBA                   
-**Units**        4                                                
-**Book**                                                         
-**Links**        | `Canvas <https://cabrillo.instructure.com>`_ 
-                 | `Cloud9 IDE <https://957903271915.signin.aws.amazon.com/console>`_
-================ ===================================================
+:Time: Wednesdays 2:30pm to 4:35pm
+:Room: Room WatC105 Watsonville Campus
+:Lab: Open Lab - 1 hour per week TBA
+:Units: 4
+:Book: TBD
+:Links:
+ | `Canvas <https://cabrillo.instructure.com>`_
+ | `Cloud9 IDE <https://957903271915.signin.aws.amazon.com/console>`_
 
 Course Calendar
 ---------------
