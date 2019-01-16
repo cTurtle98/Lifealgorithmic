@@ -3,106 +3,63 @@ Lecture slides are [here](https://docs.google.com/a/lifealgorithmic.com/presenta
 
 ## The Linux Boot Sequence 
 
-There are two forms of memory in all computers, volatile and non-volatile. Volatile memory is fast but it cannot hold information without a supply of electricity. Examples of volatile memory are SRAM (the kind that's used in the processor cache) and DRAM which is what most computers use as main memory. Non-volatile memory is slower than volatile memory but has the advantage of being able to retain its contents with the power off. Examples of non-volatile memory are Flash (used on USB thumb drives and SSDs) and old fashioned magnetic hard disk drives. On x86 machines Linux can only execute from volatile memory (like DRAM) so when power is first applied the kernel is moved from disk into DRAM. The process of taking Linux from non-volatile storage, loading it into volatile storage is called booting. It's a very convoluted process that has to be done carefully. It's easy to overlook how much work it is to get a computer ready to go because it usually doesn't take very long.
+There are two forms of memory in all computers, volatile and non-volatile. Volatile memory is fast but it cannot hold information without a supply of electricity. Examples of volatile memory are SRAM (the kind that's used in the processor cache) and DRAM which is what most computers use as main memory. Non-volatile memory is slower than volatile memory but has the advantage of being able to retain its contents with the power off. Examples of non-volatile memory are Flash (used on USB thumb drives and SSDs) and old fashioned spinning magnetic hard disk drives. Linux can only execute from volatile memory (like DRAM) so when power is first applied the Linux kernel is moved from disk into DRAM. The process of taking Linux from non-volatile storage, loading it into volatile storage is called booting. It's a very convoluted process that has to be done carefully. It's easy to overlook how much work it is to get a computer ready to go because it usually doesn't take very long.
 
 ### Step 0: Getting Hardware Ready 
 
-When you power on a computer the CPU wakes up into a lonely world. Most of the hardware that surrounds it is not ready to use. It's the job of the processor to wake up all the rest of the hardware on the machine, including the RAM. That's where the BIOS comes it. The BIOS is a program stored on Flash chips on the motherboard. The BIOS is the first program that executes. It's authors customized it to exactly match the hardware on the motherboard. That's important because there can be tremendous variation in hardware. When the machine is initialized the BIOS will search for a place to get more instructions.
+When you power on a computer the CPU wakes up into a lonely world. Most of the hardware that surrounds it is not ready to use. It's the job of the processor to wake up all the rest of the hardware on the machine, including the RAM. That's where the BIOS comes it. The BIOS is a program stored on Flash chips on the motherboard. The BIOS is the first program that executes. It's customized for the hardware on the motherboard. When the machine is initialized the BIOS will search for a place to get more instructions.
 
 ### Legacy, EFI and UEFI 
 
-In the PC world there are three kinds of BIOS that you may encounter. For decades the PC BIOS was the standard. Really, it was a total mess with no standard and a lot of historical baggage. The limitations of the PC BIOS eventually became a roadblock for innovation and Intel proposed a replacement called Extensible Firmware Interface (EFI). The world learned a lot from EFI but it also had some problems that limited its usefulness so a consortium of companies got together and created the [Unified Extensible Firmware Interface (UEFI)](http://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface) which is now standard on all new PCs. UEFI has an important feature called secure boot. This feature can make it difficult to boot Linux on a computer that has Windows. Should you find yourself having trouble getting Linux to boot, see [Ubuntu's documentation](https://help.ubuntu.com/community/UEFI).
+In the PC world there are three kinds of BIOS that you may encounter. For decades PC BIOS was the standard. Really, it was a total mess with no standard and a lot of historical baggage. The limitations of the PC BIOS eventually became a roadblock for innovation and Intel proposed a replacement called Extensible Firmware Interface (EFI). The world learned a lot from EFI but it also had some problems that limited its usefulness so a consortium of companies got together and created the [Unified Extensible Firmware Interface (UEFI)](http://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface) which is now standard on all new PCs. UEFI has an important feature called secure boot. This feature can make it difficult to boot Linux on a computer that has Windows. Should you find yourself having trouble getting Linux to boot, see [Ubuntu's documentation](https://help.ubuntu.com/community/UEFI).
  
 ### Configuring BIOS 
 
 How you configure BIOS depends on the make and model of your computer. New computers usually have menu driven systems where you can use the mouse. VMWare mimics the old-style text only menu systems that have been common for decades. On recent computers there will be many, many options to configure. The most important one is where to look for the boot loader. This screen in VMWare lets you select:
 
-
-![image](../images/vmware_vm_bios_boot_order.png)
-
-
+![image](../_static/images/vmware_vm_bios_boot_order.png)
 
 Bootloaders can also be loaded over the Internet. This configuration is common in environments with a large number of computers because it's a pain to update disks. We won't cover that in class but if you want a project that will take you all weekend you can make your VM boot over the network.
  
 ## Step 1: Load the Bootloader 
 
-BIOS can only load simple programs into RAM. Complicated programs like Linux must have everything setup very specifically in order to run and BIOS is not capable of doing that. A program that can be loaded by BIOS and is capable of loading Linux (or another OS) is called a Boot Loader. On the PC platform Linux uses a boot loader called [GRUB](http://www.gnu.org/software/grub/), on ARM platforms (e.g. BeagleBone and Android) Linux uses [Das U-Boot](http://www.denx.de/wiki/U_Boot). These programs are simple, but extremely flexible. Both GRUB and U-Boot have a command line that allows users to manipulate the boot process by selecting where to find Linux (perhaps from the network). U-Boot may give a user the option to write a new copy of Linux into non-volatile memory.
+BIOS can only load simple programs into RAM. Linux is too complicated for BIOS to load. A *boot loader* is a program that is loaded by BIOS for the purpose of loading Linux or another OS. On the PC platform Linux uses a boot loader called [GRUB](http://www.gnu.org/software/grub/), on ARM platforms (e.g. BeagleBone and Android) Linux uses [U-Boot](http://www.denx.de/wiki/U_Boot). These programs are simple, but extremely flexible. Both GRUB and U-Boot have a command line that allows users to manipulate the boot process by selecting where to find Linux (perhaps from the network). U-Boot may give a user the option to write a new copy of Linux into non-volatile memory.
  
 ### Configuring GRUB 
 
- In depth:[GRUB](grub)
+ In depth:[GRUB](grub.md)
+  
 In this section I'm going to discuss only a few of the things you can do with GRUB. For the full picture look at [Ubuntu's documentation](https://help.ubuntu.com/community/Grub2). There are a few key locations where you will find GRUB's configuration:
 
 ```
 /boot/grub/grub.cfg
 ```
 
-This is GRUB's configuration file, the one that is actually used to boot the machine. It is automatically generated so you should never edit it directly or your edits will be lost.The other locations control the generation of 
-```
-grub.cfg
-```
-
-.Basic settings for GRUB like how long it shows the menu before booting and what image to use for the splash screen can be found in:
+This is GRUB's configuration file, the one that is actually used to boot the machine. It is automatically generated so you should never edit it directly or your edits will be lost. The other locations control the generation of `grub.cfg`. Basic settings for GRUB like how long it shows the menu before booting and what image to use for the splash screen can be found in:
 
 ```
 /etc/default/grub
 ```
 
-If you want to change something about GRUB try to do it in 
-```
-/etc/default/grub
-```
-
- first. This is the easiest place.Files in here get added to 
-```
-/etc/default/grub
-```
-
-:
+If you want to change something about GRUB try to do it in `/etc/default/grub` first. This is the easiest place. Files in this directory get added to `/etc/default/grub`:
 
 ```
 /etc/default/grub.d/
 ```
 
-This location is used by packages to add stuff to GRUB without messing up your configuration. You won't need to touch anything here.This directory contains the shell scripts that generate 
-```
-/boot/grub/grub.cfg
-```
-
-:
+This location is used by packages to add stuff to GRUB without messing up your configuration. You won't need to touch anything here.This directory contains the shell scripts that generate `/boot/grub/grub.cfg`:
 
 ```
 /etc/grub.d/
 ```
 
-The shell scripts automatically determine what operating systems are loaded onto your machine and generate GRUB menu entries for them. You can do anything you want with GRUB by adding your own scripts or changing the order in which the existing scripts run.When you have changed GRUBs configuration in 
-```
-/etc/default
-```
-
- or 
-```
-/etc/grub
-```
-
- the changes are not automatically reflected in 
-```
-grub.cfg
-```
-
-. In order to save your changes you must run the following command:
+The shell scripts automatically determine what operating systems are loaded onto your machine and generate GRUB menu entries for them. You can do anything you want with GRUB by adding your own scripts or changing the order in which the existing scripts run. When you have changed GRUBs configuration in `/etc/default` or `/etc/grub` the changes are not automatically reflected in `grub.cfg`. In order to save your changes you must run the following command:
 
 ```
 $ sudo update-grub
-
 ```
 
-Check the output for errors. If you try to reboot the machine with a bogus 
-```
-grub.cfg
-```
-
- you will be sorry!
+> Check the output for errors. If you try to reboot the machine with a bogus `grub.cfg` you will be sorry!
 
 ## Step 2: Loading Linux 
 

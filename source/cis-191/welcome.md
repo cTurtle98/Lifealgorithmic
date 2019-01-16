@@ -1,6 +1,7 @@
-Introduction lecture slides are [here](https://docs.google.com/presentation/d/1uOAWM1pP4gSxS_XeRgOt1i1HAfQoCbQ5NBgJfYRvrOU/edit?usp=sharing) .Â 
+Introduction lecture slides are [here](https://docs.google.com/presentation/d/1uOAWM1pP4gSxS_XeRgOt1i1HAfQoCbQ5NBgJfYRvrOU/edit?usp=sharing) 
 
 # Introduction  
+
 CIS-191 builds on CIS-90. In this class we will go more deeply into how Linux works and how you control it. Each week I will lecture to give you a general idea of what we're covering and how the programs and technology work. This is to give you the information you need to understand what you are doing. Then we'll practice commands that change Linux's configuration and commands that observe the current configuration. My goal is to help you understand a three step process:
   - Plan
   - Execute
@@ -13,20 +14,21 @@ When you're performing a task that requires making multiple changes always chang
 ## Am I Ready for CIS-191?
 
 There is a lot of information in CIS-90 that I count on people to know. Don't worry if your skills are a little rusty because you haven't used Linux in a Â while, but you should be able to answer the following questions:
-  * What is the difference between an absolute and a relative path?Â 
-  * What program(s) do you use to edit a text file from the command line?Â 
+
+  * What is the difference between an absolute and a relative path?
+  * What program(s) do you use to edit a text file from the command line?
   * What is a command and how do you give a command arguments?
-  * What is an environment variable?Â How do you view them?Â How do you set them?
-  * Where does Linux look for commands to run?Â 
+  * What is an environment variable? How do you view them? How do you set them?
+  * Where does Linux look for commands to run? 
   * Where are your personal files usually located?
   * Can you create, move and copy files?
   * What's a symbolic link? What command makes one?
   * What are file permissions? How can I view and change them?
-  * What are STDIN, STDOUT and STDERR?Â 
-  * How do I know what programs are running on Linux? How would I stop one?Â 
+  * What are STDIN, STDOUT and STDERR? 
+  * How do I know what programs are running on Linux? How would I stop one?
   * How do I copy files from my Windows or Mac computer to my Linux VM?
   * How do you get help for a command?
 
 
-If you feel confident with two thirds of those at least you're probably ready for CIS-191. If you think you're a little shaky on those, come talk to me.Â 
+If you feel confident with two thirds of those at least you're probably ready for CIS-191. If you think you're a little shaky on those, come talk to me.
 
