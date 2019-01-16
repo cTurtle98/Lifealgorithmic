@@ -20,23 +20,23 @@ Course Calendar
 ==== ====== ===========================================================
 Week Date   Topic 
 ==== ====== ===========================================================
-1    1/30   Introduction to Cloud Programming  
-2    2/6    Variables and Numerical Operations  
-3    2/13   Strings and Printing  
-4    2/20   User Input  
-5    2/27   Reading and Writing Files  
-6    3/6    Functions  
-7    3/13   Character Encoding  
-8    3/20   Midterm  
-9    3/27   Spring Break  
-10   4/3    Logic and Decisions  
-11   4/10   Lists and Loops  
-12   4/17   Lists and Loops  
-13   4/24   Dictionaries  
-14   5/1    Dictionaries  
-15   5/8    Classes and Objects  
-16   5/15   Flask  
-17   5/22   Final Exam  
+1    1/30   .. include:: cis-15/plan/week01.rst 
+2    2/6    .. include:: cis-15/plan/week02.rst
+3    2/13   .. include:: cis-15/plan/week03.rst
+4    2/20   .. include:: cis-15/plan/week04.rst
+5    2/27   .. include:: cis-15/plan/week05.rst
+6    3/6    .. include:: cis-15/plan/week06.rst
+7    3/13   .. include:: cis-15/plan/week07.rst
+8    3/20   .. include:: cis-15/plan/week08.rst
+\-   3/27   Spring Break
+10   4/3    .. include:: cis-15/plan/week09.rst
+11   4/10   .. include:: cis-15/plan/week10.rst
+12   4/17   .. include:: cis-15/plan/week11.rst
+13   4/24   .. include:: cis-15/plan/week12.rst
+14   5/1    .. include:: cis-15/plan/week13.rst
+15   5/8    .. include:: cis-15/plan/week14.rst
+16   5/15   .. include:: cis-15/plan/week15.rst
+17   5/22   .. include:: cis-15/plan/week16.rst
 ==== ====== ===========================================================
 
 Course Description

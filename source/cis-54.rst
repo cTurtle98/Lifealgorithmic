@@ -18,23 +18,23 @@ Course Calendar
 ===== ====== ===================================================
 Week  Date   Topic 
 ===== ====== ===================================================
-1     1/31   Welcome   
-2     2/7    Introduction to DBMS  
-3     2/14   The Relational Model 
-4     2/21   The Relational Model 
-5     2/28   The Relational Model  
-6     3/7    SQL - Selects  
-7     3/14   SQL - Selects  
-8     3/21   Midterm  
-9     3/28   Spring Break  
-10    4/4    SQL - Creating Tables  
-11    4/11   SQL - Subqueries and Joins  
-12    4/18   SQL - Outer Joins  
-13    4/25   Data Modeling  
-14    5/2    Database Design 
-15    5/9    Transactions and Concurrency  
-16    5/16   Database Security  
-17    5/21   Final Exam  
+1     1/31   .. include:: cis-54/plan/week01.rst
+2     2/7    .. include:: cis-54/plan/week02.rst
+3     2/14   .. include:: cis-54/plan/week03.rst
+4     2/21   .. include:: cis-54/plan/week04.rst
+5     2/28   .. include:: cis-54/plan/week05.rst
+6     3/7    .. include:: cis-54/plan/week06.rst
+7     3/14   .. include:: cis-54/plan/week07.rst
+8     3/21   .. include:: cis-54/plan/week08.rst
+\-     3/28   Spring Break
+09    4/4    .. include:: cis-54/plan/week09.rst
+10    4/11   .. include:: cis-54/plan/week10.rst
+11    4/18   .. include:: cis-54/plan/week11.rst
+12    4/25   .. include:: cis-54/plan/week12.rst
+13    5/2    .. include:: cis-54/plan/week13.rst
+14    5/9    .. include:: cis-54/plan/week14.rst
+15    5/16   .. include:: cis-54/plan/week15.rst
+16    5/21   .. include:: cis-54/plan/week16.rst
 ===== ====== ===================================================
 
 Course Description
