@@ -18,66 +18,27 @@ CIS 191 - Spring 2019
 Course Calendar
 ----------------
 
-====  ====  ======================================= ================
-Week  Date  Topic                                   Reading
-====  ====  ======================================= ================
-1     1/31  `Welcome`_
-2     2/7   `System Administration`_                Chapters 1 & 4
-3     2/14  `Boot Loaders and Booting`_             Chapter 3
-4     2/21  `Files, Filesystems and Block Devices`_ Chpater 6
-5     2/28  `Partitioning Disks`_                   Chpater 8
-6     3/7   `RAID`_                                 Chapter 8
-7     3/14  `Logical Volume Management`_            Chapter 7
-8     3/21  `Midterm`_
-9     3/28  `Spring Break`_
-10    4/4   `User Accounts and Groups`_             Chapters 5 & 9
-11    4/11  `Controlling Processes`_                Chapter 11
-12    4/18  `System Monitoring and Logging`_        Chapter 10
-13    4/25  `Package Management`_                   Chapter 12
-14    5/2   `Kernel Customization`_                 Chapter 13
-15    5/9   `Virtualization`_                       Chapter 24
-16    5/16  `Docker Containers`_
-17    5/21  `Final Exam`_
-====  ====  ======================================= ================
-
-Course Topics
--------------
-
-.. _Welcome:
-
-.. _System Administration:
-
-.. _Boot Loaders and Booting:
-
-.. _Files, Filesystems and Block Devices:
-
-.. _Partitioning Disks:
-
-.. _RAID:
-
-.. _Logical Volume Management:
-
-.. _Midterm:
-
-.. _Spring Break:
-
-.. _User Accounts and Groups:
-
-.. _Controlling Processes:
-
-.. _System Monitoring and Logging:
-
-.. _Package Management:
-
-.. _Kernel Customization:
-
-.. _Virtualization:
-
-.. _Docker Containers:
-
-.. _Final Exam:
-
-
+====  ====  =============================================================
+Week  Date      Topic
+====  ====  =============================================================
+1     1/31  .. include:: cis-191/plan/week01.rst
+2     2/7   .. include:: cis-191/plan/week02.rst
+3     2/14  .. include:: cis-191/plan/week03.rst
+4     2/21  .. include:: cis-191/plan/week04.rst
+5     2/28  .. include:: cis-191/plan/week05.rst
+6     3/7   .. include:: cis-191/plan/week06.rst
+7     3/14  .. include:: cis-191/plan/week07.rst
+8     3/21  .. include:: cis-191/plan/week08.rst
+\-    3/28  Spring Break
+9     4/4   .. include:: cis-191/plan/week09.rst
+10    4/11  .. include:: cis-191/plan/week10.rst
+11    4/18  .. include:: cis-191/plan/week11.rst
+12    4/25  .. include:: cis-191/plan/week12.rst
+13    5/2   .. include:: cis-191/plan/week13.rst
+14    5/9   .. include:: cis-191/plan/week14.rst
+15    5/16  .. include:: cis-191/plan/week15.rst
+16    5/21  .. include:: cis-191/plan/week16.rst
+====  ====  =============================================================
 
 Course Description
 ------------------
