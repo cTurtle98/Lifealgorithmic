@@ -78,8 +78,6 @@ Course Topics
 .. _Final Exam:
 
 
-  fucke shit
-
 
 Course Description
 ------------------
