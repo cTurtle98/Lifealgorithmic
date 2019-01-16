@@ -26,7 +26,7 @@ Week  Date   Topic
 6     3/7    .. include:: cis-54/plan/week06.rst
 7     3/14   .. include:: cis-54/plan/week07.rst
 8     3/21   .. include:: cis-54/plan/week08.rst
-\-     3/28   Spring Break
+\-     3/28  **Spring Break**
 09    4/4    .. include:: cis-54/plan/week09.rst
 10    4/11   .. include:: cis-54/plan/week10.rst
 11    4/18   .. include:: cis-54/plan/week11.rst

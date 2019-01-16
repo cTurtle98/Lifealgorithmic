@@ -9,7 +9,9 @@ Section 3 (Watsonville)
 :Room: Room WatC105 Watsonville Campus
 :Lab: Open Lab - 1 hour per week TBA
 :Units: 4
-:Book: TBD
+:Book:
+ | Starting out with Python (Optional)
+ | ISBN-13 `978-0134444321 <https://www.google.com/search?q=978-0134444321>`_
 :Links:
  | `Canvas <https://cabrillo.instructure.com>`_
  | `Cloud9 IDE <https://957903271915.signin.aws.amazon.com/console>`_
@@ -28,7 +30,7 @@ Week Date   Topic
 6    3/6    .. include:: cis-15/plan/week06.rst
 7    3/13   .. include:: cis-15/plan/week07.rst
 8    3/20   .. include:: cis-15/plan/week08.rst
-\-   3/27   Spring Break
+\-   3/27   **Spring Break**
 10   4/3    .. include:: cis-15/plan/week09.rst
 11   4/10   .. include:: cis-15/plan/week10.rst
 12   4/17   .. include:: cis-15/plan/week11.rst

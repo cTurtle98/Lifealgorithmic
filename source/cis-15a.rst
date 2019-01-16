@@ -9,7 +9,9 @@ Sections 1 (Online) and 2 (Aptos)
 :Room: Room 828 Aptos Campus and Online
 :Lab: Open Lab - 1 hour per week TBA
 :Units: 4
-:Book: TBD
+:Book:
+ | Starting out with Python (Optional)
+ | ISBN-13 `978-0134444321 <https://www.google.com/search?q=978-0134444321>`_
 :Links:
  | `Canvas <https://cabrillo.instructure.com>`_
  | `Cloud9 IDE <https://957903271915.signin.aws.amazon.com/console>`_
@@ -27,9 +29,9 @@ Week Date   Topic
 5    3/1    .. include:: cis-15/plan/week05.rst
 6    3/8    .. include:: cis-15/plan/week06.rst
             .. include:: cis-15/plan/week07.rst
-7    3/15   Lincoln's Birthday - No Class 
+7    3/15   **Lincoln's Birthday - No Class**
 8    3/22   .. include:: cis-15/plan/week08.rst
-9    3/29   Spring Break 
+9    3/29   **Spring Break**
 10   4/5    .. include:: cis-15/plan/week09.rst
 11   4/12   .. include:: cis-15/plan/week10.rst
 12   4/19   .. include:: cis-15/plan/week11.rst
