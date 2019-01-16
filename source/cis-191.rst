@@ -8,11 +8,9 @@ CIS 191 - Spring 2019
 :Lab: Open Lab - 1 hour per week TBA
 :Units: 4
 :Book:
- | UNIX and Linux System Administration Handbook (4th Edition)
- | Evi Nemeth, Garth Snyder, Trent R. Hein, Ben Whaley
- | Prentice Hall PTR
- | `ISBN: 978-0131480056 <https://www.google.com/search?q=978-0131480056>`_
  | (Optional)
+ | UNIX and Linux System Administration Handbook (4th Edition)
+ | ISBN: `978-0131480056 <https://www.google.com/search?q=978-0131480056>`_
 :Links: `Canvas <https://cabrillo.instructure.com>`_
 
 Course Calendar

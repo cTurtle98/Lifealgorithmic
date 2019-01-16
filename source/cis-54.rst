@@ -7,7 +7,9 @@ CIS 54 - Spring 2019
 :Room: Room 828 Aptos Main Campus
 :Lab: Open Lab - 1 hour per week TBA
 :Units: 4
-:Book: TBD
+:Book:
+ | Database Concepts (7th Edition)
+ | ISBN: `978-0133544626 <https://www.google.com/search?q=978-0133544626>`_
 :Links:
  | `Canvas <https://cabrillo.instructure.com>`_
  | `Cloud9 IDE <https://957903271915.signin.aws.amazon.com/console>`_
