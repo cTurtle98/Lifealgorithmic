@@ -1,6 +1,23 @@
 
 Lecture slides are [here](https://docs.google.com/a/lifealgorithmic.com/presentation/d/1yNwFcDZsK2ceIGk65YXr6fCz0-P81kP5TvYnSrCtXCM/edit?usp=sharing).
+#### Commands 
 
+ - update-grub
+ - systemctl 
+ 
+#### Configuration
+
+ - /etc/default/grub
+ - /etc/grub.d
+ 
+#### See Also 
+
+  - [Unified Extensible Firmware Interface (UEFI)](http://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface)
+  - [Ubuntu's UEFI Documentation](https://help.ubuntu.com/community/UEFI)
+  - [GRUB](http://www.gnu.org/software/grub/)
+  - [U-Boot](http://www.denx.de/wiki/U_Boot)
+  - [Systemd](https://www.freedesktop.org/wiki/Software/systemd/)
+  
 ## The Linux Boot Sequence 
 
 There are two forms of memory in all computers, volatile and non-volatile. Volatile memory is fast but it cannot hold information without a supply of electricity. Examples of volatile memory are SRAM (the kind that's used in the processor cache) and DRAM which is what most computers use as main memory. Non-volatile memory is slower than volatile memory but has the advantage of being able to retain its contents with the power off. Examples of non-volatile memory are Flash (used on USB thumb drives and SSDs) and old fashioned spinning magnetic hard disk drives. Linux can only execute from volatile memory (like DRAM) so when power is first applied the Linux kernel is moved from disk into DRAM. The process of taking Linux from non-volatile storage, loading it into volatile storage is called booting. It's a very convoluted process that has to be done carefully. It's easy to overlook how much work it is to get a computer ready to go because it usually doesn't take very long.
@@ -64,6 +81,8 @@ $ sudo update-grub
 ## Step 2: Loading Linux 
 
 Watch this video of two distributions of Linux booting:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4NXMmHYNYfA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Multiprocessor Boot Advantage 
 

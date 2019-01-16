@@ -1,10 +1,12 @@
+# Deciphering Manual Pages 
+
 Manual pages are the definitive references for Linux commands. They are the best place to find out how to use a command and what you can do with it. But, they can be difficult to interpret. This guide will introduce manual page concepts and will help you understand how to decipher a command's usage.
 
-### Commands 
+#### Commands 
 
   * man
 
-### Configuration 
+#### Configuration 
 
   * None
 
@@ -16,7 +18,8 @@ UNIX manuals used to be printed. The very first edition of the [Unix Programmer'
 
 The manual covers material that is needed by Linux programmers and Linux administrators and is divided into volumes called sections. Originally, each section would be in it's own binder. Sections are dedicated to a category of command or programming interface. The section definitions are:
 
-^ Section ^ Description ^ Audience ^ 
+| Section | Description | Audience |
+| ------- | ----------- | -------- |  
 | 1 | Executable programs or shell commands | All Users |
 | 2 | System calls (functions provided by the kernel) | Programmers | 
 | 3 | Library calls (functions within program libraries) | Programmers | 
@@ -286,10 +289,11 @@ Many commands have variadic arguments. See the manual for the "cat" command.
 
 ## Quick Reference 
 
-^ Syntax ^ Example ^ Meaning
+| Syntax | Example | Meaning | 
+| ------ | ------- | ------- | 
 | literal | vgcreate | The word just as shown (e.g. the command) |
 | <item> | <PhysicalDevicePath> | Describes what to put in this place. |
 | [argument] | [-g] | An optional agrument |
-| [choice1 %%|%% choice2 ] \\ { choice1 %%|%% choice2 } | [ -l %%|%% -L ] \\ { y %%|%% n } | A choice of one of the possibilities |
+| [choice1&vert;choice2] <br>{choice1&vert;choice2} | [ -l &vert; -L ] <br> { y &vert; n } | A choice of one of the possibilities |
 | [item]... | [file]... | Zero or more items |
-| item [ item... ] | volume [volume...] |One or more items |
+| item [item...] | volume [volume...] |One or more items |

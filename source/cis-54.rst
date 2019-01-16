@@ -3,17 +3,14 @@ CIS 54 - Spring 2019
 
 **Introduction to Client/Server Relational Database Management Systems**
 
-.. cssclass:: course-basics table-striped
-	    
-================ ===================================================
-**Time**         Thursdays 5:30pm to 9:35pm                      
-**Room**         Room 828 Aptos Main Campus                       
-**Lab**          Open Lab - 1 hour per week TBA                   
-**Units**        4                                                
-**Book**                                                         
-**Links**        | `Canvas <https://cabrillo.instructure.com>`_ 
-                 | `Cloud9 IDE <https://957903271915.signin.aws.amazon.com/console>`_
-================ ===================================================
+:Time: Thursdays 5:30pm to 9:35pm
+:Room: Room 828 Aptos Main Campus
+:Lab: Open Lab - 1 hour per week TBA
+:Units: 4
+:Book: TBD
+:Links:
+ | `Canvas <https://cabrillo.instructure.com>`_
+ | `Cloud9 IDE <https://957903271915.signin.aws.amazon.com/console>`_
 
 Course Calendar
 ---------------

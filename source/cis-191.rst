@@ -18,29 +18,68 @@ CIS 191 - Spring 2019
 Course Calendar
 ----------------
 
-====  ====  ==================================== ================ =======
-Week  Date  Topic                                Reading          Project
-====  ====  ==================================== ================ =======
-1     1/31  `Welcome <cis-191/welcome.html>`_
-2     2/7   System Administration                Chapters 1 & 4
-3     2/14  Boot Loaders and Booting             Chapter 3 
-4     2/21  Files, Filesystems and Block Devices Chpater 6
-5     2/28  Partitioning Disks                   Chpater 8 
-6     3/7   RAID                                 Chapter 8 
-7     3/14  Logical Volume Management            Chapter 7 
-8     3/21  Midterm 
-9     3/28  Spring Break 
-10    4/4   User Accounts and Groups             Chapters 5 & 9
-11    4/11  Controlling Processes                Chapter 11 
-12    4/18  System Monitoring and Logging        Chapter 10 
-13    4/25  Package Management                   Chapter 12 
-14    5/2   Kernel Customization                 Chapter 13 
-15    5/9   Virtualization                       Chapter 24 
-16    5/16  Docker Containers                    
-17    5/21  Final Exam 
-====  ====  ==================================== ================ ======= 
+====  ====  ======================================= ================
+Week  Date  Topic                                   Reading
+====  ====  ======================================= ================
+1     1/31  `Welcome`_
+2     2/7   `System Administration`_                Chapters 1 & 4
+3     2/14  `Boot Loaders and Booting`_             Chapter 3
+4     2/21  `Files, Filesystems and Block Devices`_ Chpater 6
+5     2/28  `Partitioning Disks`_                   Chpater 8
+6     3/7   `RAID`_                                 Chapter 8
+7     3/14  `Logical Volume Management`_            Chapter 7
+8     3/21  `Midterm`_
+9     3/28  `Spring Break`_
+10    4/4   `User Accounts and Groups`_             Chapters 5 & 9
+11    4/11  `Controlling Processes`_                Chapter 11
+12    4/18  `System Monitoring and Logging`_        Chapter 10
+13    4/25  `Package Management`_                   Chapter 12
+14    5/2   `Kernel Customization`_                 Chapter 13
+15    5/9   `Virtualization`_                       Chapter 24
+16    5/16  `Docker Containers`_
+17    5/21  `Final Exam`_
+====  ====  ======================================= ================
 
-.. _test:
+Course Topics
+-------------
+
+.. _Welcome:
+
+.. _System Administration:
+
+.. _Boot Loaders and Booting:
+
+.. _Files, Filesystems and Block Devices:
+
+.. _Partitioning Disks:
+
+.. _RAID:
+
+.. _Logical Volume Management:
+
+.. _Midterm:
+
+.. _Spring Break:
+
+.. _User Accounts and Groups:
+
+.. _Controlling Processes:
+
+.. _System Monitoring and Logging:
+
+.. _Package Management:
+
+.. _Kernel Customization:
+
+.. _Virtualization:
+
+.. _Docker Containers:
+
+.. _Final Exam:
+
+
+  fucke shit
+
 
 Course Description
 ------------------

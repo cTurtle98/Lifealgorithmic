@@ -6,8 +6,8 @@ In this part you will extend the size of your root volume. Here's what your VM's
 
 ```
 $ sudo vgdisplay ubuntu-vg
-  Using volume group(s) on command line
-  Finding volume group "ubuntu-vg"
+ Using volume group(s) on command line
+ Finding volume group "ubuntu-vg"
  --- Volume group ---
  VG Name        ubuntu-vg
  System ID      
@@ -30,14 +30,13 @@ $ sudo vgdisplay ubuntu-vg
  VG UUID        yPik5p-5Bc5-6S7Y-af9c-O4Q2-DHHR-bt8quH
 ```
 
-Notice that there are extents on the ubuntu-vg volume group that can still be allocated (about 17G worth). Using the ''lvextend'' and the ''resize2fs''commands perform the following tasks:
-
+Notice that there are extents on the ubuntu-vg volume group that can still be allocated (about 17G worth). Using the `lvextend` and the `resize2fs` commands perform the following tasks:
   - Extend the /dev/ubuntu-vg/root logical volume by 3000 extents.
   - Extend the root filesystem to use the additional extents.
 
 WARNING: Do NOT extend the root logical volume to take all remaining space. You will need that space for the next part. Check that you've still got free space after doing step 1. If not you still have time to take the space away. After you extend the filesystem reducing the space gets much harder.
 
-If you have extended the root logical volume properly the output of ''lvdisplay'' command should be:
+If you have extended the root logical volume properly the output of ``lvdisplay`` command should be:
 
 ```
 $ sudo lvdisplay /dev/ubuntu-vg/root
@@ -63,7 +62,7 @@ Notice that the size is now 24.62 GiB with 6302 logical extents.
 
 ## Part 2: Create a Snapshot 
 
-In this part you'll create a snapshot volume and mount it. The snapshot will hold the state of your VM so that you can recover files if you delete them. You will need the ''lvcreate'' and ''mount'' commands to:
+In this part you'll create a snapshot volume and mount it. The snapshot will hold the state of your VM so that you can recover files if you delete them. You will need the ``lvcreate`` and ``mount`` commands to:
 
   - Create a snapshot volume based on /dev/ubuntu-vg/root using the remaining1317 physical extents
   - Make a /snapshot directory and mount the snapshot on it
@@ -167,9 +166,3 @@ df > /home/student/df.txt
 ```
 
 Submit ubuntu-vg.txt, mounts.txt, fstab and df.txt on Canvas.
-
-## Grading 
-
-  * 5 points for each file (20 possible)
-  * 15 points for the extra credit
-

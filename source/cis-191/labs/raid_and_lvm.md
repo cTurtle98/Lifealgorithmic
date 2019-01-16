@@ -1,21 +1,54 @@
 In class you created a RAID disk and an LVM Logical Volume. In this lab you will combine the two to implement RAID 10. Here's what a RAID 10 looks like:
 
-![image](../images/raid_1044cc.png)
-
+![image](../../_static/images/raid_1044cc.png)
 
 
 You will implement RAID 1 using Linux's software RAID and then join your two RAID devices into a Volume Group. You will then create a logical volume that takes up all the space in the volume group.
-SetupYou will need to install the following packages if you haven't already:
-# apt-get install mdadm lvm2
+
+## Setup
+
+You will need to install the following packages if you haven't already:
+
+```
+$ sudo apt-get install mdadm lvm2
+```
+
 Create a temporary directory for the results that you will submit at the end of the lab.
-# mkdir /tmp/lab4
+
+```
+$ sudo mkdir /tmp/lab4
+```
+
 At the end of each step you will record your configuration with the following command:
-# (df; cat /proc/mdstat; pvdisplay -c; vgdisplay -c; lvdisplay -c) > /tmp/lab4/stepN.log
-IMPORTANT:Replace the 'N' with the number of the step you are on. For example if you have just completed step 2 your command looks like this:# (df; cat /proc/mdstat; pvdisplay -c; vgdisplay -c; lvdisplay -c) > /tmp/lab4/step2.log
+
+```
+$ (df; cat /proc/mdstat; pvdisplay -c; vgdisplay -c; lvdisplay -c) > /tmp/lab4/stepN.log
+```
+
+ > IMPORTANT:Replace the 'N' with the number of the step you are on. For example if you have just completed step 2 your command looks like this:
+ 
+ ```
+ # (df; cat /proc/mdstat; pvdisplay -c; vgdisplay -c; lvdisplay -c) > /tmp/lab4/step2.log
+```
+
 Before you can begin you will need to create four files and bind four loopback devices to them.
-# dd if=/dev/zero bs=1M count=10of=disk0.img# dd if=/dev/zero bs=1M count=10of=disk1.img# dd if=/dev/zero bs=1M count=10of=disk2.img# dd if=/dev/zero bs=1M count=10of=disk3.img# losetup /dev/loop0 disk0.img# losetup /dev/loop1 disk1.img# losetup /dev/loop2 disk2.img# losetup /dev/loop3 disk3.img
+
+```
+# dd if=/dev/zero bs=1M count=10 of=disk0.img
+# dd if=/dev/zero bs=1M count=10 of=disk1.img
+# dd if=/dev/zero bs=1M count=10 of=disk2.img
+# dd if=/dev/zero bs=1M count=10 of=disk3.img
+# losetup /dev/loop0 disk0.img
+# losetup /dev/loop1 disk1.img
+# losetup /dev/loop2 disk2.img
+# losetup /dev/loop3 disk3.img
+```
+
 Now you are ready to begin.
-Step 1: Create two RAID 1 DrivesFor this step you will create two RAID drives (/dev/md0 and /dev/md1). Use the book or Google to find the exact commands to create your RAID 1 devices. If you have done it correctly the contents of /proc/mdstat should look like this:
+
+## Step 1: Create two RAID 1 Drives
+
+For this step you will create two RAID drives (/dev/md0 and /dev/md1). Use the book or Google to find the exact commands to create your RAID 1 devices. If you have done it correctly the contents of /proc/mdstat should look like this:
 # cat /proc/mdstatPersonalities : [linear] [multipath] [raid0] [raid1] [raid6] [raid5] [raid4] [raid10]md1 : active raid1 loop3[1] loop2[0]   10176 blocks super 1.2 [2/2] [UU]  md0 : active raid1 loop1[1] loop0[0]   10176 blocks super 1.2 [2/2] [UU]  unused devices: <none>
 When you are satisfied that you have created the two RAID devices save your progress as /tmp/lab4/step1.log using the command in the setup section.
 Step 2: Use LVM to Make a Logical VolumeYour two RAID devices are each only 10MB in size. In this step you will use LVM to join them together into a roughly 20MB logical volume. Refer to the instructions in the book for help or use Google. The general procedure is:
