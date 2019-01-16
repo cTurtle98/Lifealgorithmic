@@ -1,5 +1,6 @@
-The purpose of this lab is to create a minimal but functional root filesystem. You will package your filesystem in the initramfs ramdisk format. This process is a very common task for those customizing Linux on embedded hardware like [Raspberry Pi](http://www.raspberrypi.org/)and[Beagle Bone](http://www.raspberrypi.org/)or even a rooted Android phone.
- Related:[Filesystems and Mount](filesystems_and_mount)
+The purpose of this lab is to create a minimal but functional root filesystem. You will package your filesystem in the initramfs ramdisk format. This process is a very common task for those customizing Linux on embedded hardware like [Raspberry Pi](http://www.raspberrypi.org/) and [Beagle Bone](http://www.raspberrypi.org/) or even a rooted Android phone. 
+ 
+ Related: [Filesystems and Mount](filesystems_and_mount)
 
 ## Step One 
 
@@ -67,7 +68,6 @@ Populate the directories with the required files. In order to create a device fi
 
 ```
 # ls -l /dev/console
-
 ```
 
 Now, use mknod to create the same device inside the dev directory of your new filesystem. The syntax of mknod is: 
@@ -80,7 +80,6 @@ Here's how you would make a character device called charchar with major number 5
 
 ```
 # mknod charchar c 5 1
-
 ```
 
 Be sure to set the correct permissions, ownership and group the file you just created.
@@ -88,6 +87,7 @@ Be sure to set the correct permissions, ownership and group the file you just cr
 ## Step Five 
 
 Your root filesystem has it's first (and only) device. Now you need to copy programs into it.Copy the bash shell (/bin/bash) into your new filesystem's bin directory. Make a symbolic link from the bash file to /sbin/init on your new filesystem.
+
 When Linux boots it looks for a program called /sbin/init. That's the program with PID #1. It's init's job to get the system ready. By making a symbolic link to BASH when Linux starts into our initial RAM disk it will run BASH for us. But BASH needs some additional files to run. It needs *.so library files. You can find out what *.so files are needed by an executable on Linux using the ldd command. Here's how to find out what *.so files are used by BASH:
 
 ```
@@ -100,7 +100,8 @@ libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f1689595000)
 ```
 
 If these files are missing in your new filesystem BASH cannot run. Copy each of them into the corresponding location in your new filesystem. You can ignore linux-vdso.so.1 that is a virtual library (i.e. there's no real file to copy anywhere).
-IMORTANT:Be sure to copy the paths exactlyas they appear in the ldd listing. This may require you to make additional directories. For example (this will NOT match your VM but is correct on my laptop) if you see the following line from ldd:
+
+> **IMORTANT** Be sure to copy the paths exactlyas they appear in the ldd listing. This may require you to make additional directories. For example (this will NOT match your VM but is correct on my laptop) if you see the following line from ldd:
 
 ```
 libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f7e45d96000)
@@ -111,13 +112,11 @@ You would have to make the /mnt/lib/x86_64-linux-gnu directory then copy libc.so
 ```
 # mkdir /mnt/lib/x86_64-linux-gnu
 # cp /lib/x86_64-linux-gnu/libc.so.6 /mnt/lib/x86_64-linux-gnu/libc.so.6
-
 ```
 
 If you've copied everything over you should have a working root filesystem.
 
-== Testing Your Work
- ==
+## Testing Your Work
 
 How do you know you did it right? If you copied bash and its libraries correctly then you should be able to successfully chroot into your new filesystem.
 
@@ -136,10 +135,3 @@ Unmount and de-loop your image file and turn it in with the answers to the quest
 ```
 
 Your image file will be graded by robot so please be sure you named your image file proj4.img.gz. Submit your file on Canvas.
-
-## Grading 
-
-  * 5 points for having the console device with correct permissions
-  * 5 points for having all 8 directories with correct permissions
-  * 10 points if 'chroot' to your filesystem works
-

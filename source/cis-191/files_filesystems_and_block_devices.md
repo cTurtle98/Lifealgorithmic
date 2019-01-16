@@ -1,4 +1,5 @@
 This lecture will help you understand the interlinked topics of Files, Filesystems and Block Devices. Collectively they create the way that Linux interacts with storage.
+
 The lecture slides can be found [here](https://docs.google.com/presentation/d/1rpuae6Xpa0eZANFK9XHWSnxIM5p8ixkV8B2N7FBel38/edit?usp=sharing).
 
 ## Topics 
@@ -9,40 +10,42 @@ The lecture slides can be found [here](https://docs.google.com/presentation/d/1r
 
 ## Using TAR  
 
-  * The ''tar'' program packages files and directories into a single file 
+  * The ``tar`` program packages files and directories into a single file 
     * Similar to a zip, but uncompressed 
     * Tar files are optionally compressed
   * The tar format preserves important file attributes 
   * Tar is good for backups (that's what it's designed for)
-    * When you're making backups run ''tar'' as root. 
+    * When you're making backups run ``tar`` as root. 
 
 Create a tar file: 
 
-<code bash>
+```
 $ tar -cvf <tar-file-name> <stuff-to-tar>
 ```
 
 Extract a tar file:
 
-<code bash>
+```
 $tar -xvf <tar-file-name>  
 ```
 
-  * The ''c'' option is for "create"
-  * The ''x'' option is for "extract"
-  * The ''v'' option prints the file names as they are added/extracted (slows down tar)
-  * The ''f'' option indicates that you want to use a file 
-    * The file name **must** come right after the ''f'' 
-    * If the file name is ''-'' stdin/stdout is used. 
-    * Without the ''f'' option tar will try to find a tape device in ''/dev/rmt0'' or similar
+  * The ``c`` option is for "create"
+  * The ``x`` option is for "extract"
+  * The ``v`` option prints the file names as they are added/extracted (slows down tar)
+  * The ``f`` option indicates that you want to use a file 
+    * The file name **must** come right after the ``f`` 
+    * If the file name is ``-`` stdin/stdout is used. 
+    * Without the ``f`` option tar will try to find a tape device in ``/dev/rmt0`` or similar
 
 ## Disk Devices on your VM  
 
   * Your VMs at Cabrillo have extra disks 
     * You can add disks to local VMs too 
     * Check the documentation of your hypervisor for how. 
-  * The vm disks are accessible using /dev directory entries 
+  * The vm disks are accessible using `/dev` directory entries 
 
+| Device | Purpose | 
+| -------- | -------- | 
 | /dev/sda | System disk, Linux is installed here | 
 | /dev/sdb | Extra disk 1 | 
 | /dev/sdc | Extra disk 2 | 
@@ -90,11 +93,11 @@ lxcfs on /var/lib/lxcfs type fuse.lxcfs (rw,nosuid,nodev,relatime,user_id=0,grou
 tmpfs on /run/user/1000 type tmpfs (rw,nosuid,nodev,relatime,size=204820k,mode=700,uid=1000,gid=1000)
 ```
 
-  * There are a lot of //virtual// filesystems that mount tells you about. 
-  * Can you find /dev/sda in the list above? 
-  * What disk is the root filesystem ''/'' mounted on? 
+  * There are a lot of *virtual* filesystems that mount tells you about. 
+  * Can you find `/dev/sda` in the list above? 
+  * What disk is the root filesystem `/` mounted on? 
     * Don't work too hard, you need to understand LVM to answer that question. 
-  * The ''df'' command is a bit more useful.
+  * The ``df`` command is a bit more useful.
 
 ```
 $ df
@@ -109,14 +112,12 @@ tmpfs                         1024088       0   1024088   0% /sys/fs/cgroup
 tmpfs                          204820       0    204820   0% /run/user/1000
 ```
 
-  * The ''df'' command doesn't show you most virtual filesystems 
+  * The ``df`` command doesn't show you most virtual filesystems 
   * It shows you how much disk space is free, which is important. 
-  * You can ask ''df'' about a particular place 
+  * You can ask ``df`` about a particular place 
 
 ```
 $ df /home
 Filesystem                  1K-blocks    Used Available Use% Mounted on
 /dev/mapper/ubuntu--vg-root  60266580 2553248  54628840   5% /
 ```
-
-

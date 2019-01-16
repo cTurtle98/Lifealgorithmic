@@ -19,14 +19,12 @@ The kernel is not one open source project, it's many. Anyone that wishes to make
 
 ## Understanding Kernel Versions 
 
+![image](../_static/images/kernelversionsfb2e.png)
 
+> Instead of a roadmap, there are technical guidelines. Instead of a central resource allocation, there are persons and companies who all have a stake in the further development of the Linux kernel, quite independently from one another: People like Linus Torvalds and I don't plan the kernel evolution. We don't sit there and think up the roadmap for the next two years, then assign resources to the various new features. That's because we don't have any resources. The resources are all owned by the various corporations who use and contribute to Linux, as well as by the various independent contributors out there. It's those people who own the resources who decide..."
+>
+> -- Kernel developer,[Andrew Morton](https://en.wikipedia.org/wiki/Andrew_Morton_(computer_programmer)
 
-![image](../images/kernelversionsfb2e.png)
-
-
-
-"Instead of a roadmap, there are technical guidelines. Instead of a central resource allocation, there are persons and companies who all have a stake in the further development of the Linux kernel, quite independently from one another: People like Linus Torvalds and I donât plan the kernel evolution. We donât sit there and think up the roadmap for the next two years, then assign resources to the various new features. Thatâs because we donât have any resources. The resources are all owned by the various corporations who use and contribute to Linux, as well as by the various independent contributors out there. Itâs those people who own the resources who decide..."
-ââKernel developer,[Andrew Morton](https://en.wikipedia.org/wiki/Andrew_Morton_(computer_programmer))
 The picture on the right is a screen grab from kernel.org. The picture shows the different sorts of versions that are available to download. You may notice that there's a lot. The Linux kernel is under constant development so the version numbers are constantly changing.
 
 ### Kernel Types 
@@ -37,7 +35,19 @@ MainlineMainline kernels are maintained by Linus Torvalds. The mainline kernels 
 ### Kernel Version Numbers 
 
 The logic behind the kernel version number has changed over the years.
-2.4 SeriesThe 2.4 series of kernels was released in 2001 and was maintained until 2011. Linux saw rapid adoption during this period. The 2.4 kernel was used in servers, desktops and embedded devices.2.6 SeriesThe 2.6 series of kernels was introduced in 2003 and made a number of incompatible changes to the way things worked. According to Linus it would be the last time that such incompatible changes would ever be made. The 2.6 kernels were a major step forward in features and performance and for the first time Linux started to rival commercial OSes.3 and 4 SeriesThe 3 and 4 series of kernels logically belong with the 2.6 series because they don't represent the same kind of incompatible change that happened between the 2.4 and 2.6 kernels. The numbering scheme was changed to make it easier on the eyes. The rule is a new major number (i.e. "3" or "4") will be introduced when the minor number reaches "about 20".
+
+#### 2.4 Series
+
+The 2.4 series of kernels was released in 2001 and was maintained until 2011. Linux saw rapid adoption during this period. The 2.4 kernel was used in servers, desktops and embedded devices.
+
+#### 2.6 Series
+
+The 2.6 series of kernels was introduced in 2003 and made a number of incompatible changes to the way things worked. According to Linus it would be the last time that such incompatible changes would ever be made. The 2.6 kernels were a major step forward in features and performance and for the first time Linux started to rival commercial OSes.
+
+#### 3 and 4 Series
+
+The 3 and 4 series of kernels logically belong with the 2.6 series because they don't represent the same kind of incompatible change that happened between the 2.4 and 2.6 kernels. The numbering scheme was changed to make it easier on the eyes. The rule is a new major number (i.e. "3" or "4") will be introduced when the minor number reaches "about 20".
+
 The version numbers work like this:
 
 ```
@@ -52,7 +62,12 @@ $ uname -r
 ```
 
 Here's how to read it:
-SeriesMinorPatch #ExtraLocal3130-71-generic
+
+| Series | Minor | Patch# | Extra | Local | 
+| ------ | ----- | ------ | ----- | ----- | 
+| 3      | 13    | 0      | 71 | generic | 
+
+
 For this week's project you will compile your own kernel. Here's the version that I compiled on my VM:
 
 ```
@@ -60,14 +75,15 @@ $ uname -r
 3.19.8-ckt7-matera
 ```
 
-Here's how to read it:
-SeriesMinorPatch #ExtraLocal3198-ckt7-matera
+| Series | Minor | Patch# | Extra | Local | 
+| ------ | ----- | ------ | ----- | ----- | 
+| 3      | 19    | 8      | ckt7 | matera | 
 
 ## Vendor Trees 
 
 When a company uses Linux to power their product they may need to make changes to the kernel. Usually it's to add device drivers for proprietary hardware but sometimes they add new systems (e.g. to implement a new protocol). When a company does this they're obligated to make their kernel public. Ideally the company works with the community to add their software into the mainline kernel. However, corporate development isn't always compatible with the open source model and companies decide to work on a forkof the kernel. A fork is a copy of the kernel at a particular time. When a fork is maintained by the vendor of a product it's called a "vendor tree." Companies maintain their own fork and (hopefully) get their code back into mainline. Here are a few examples of vendor trees:
 
-  * [Raspberry Pi's official Linux kernel](https://github.com/raspberrypi/linux)on GitHub
+  * [Raspberry Pi's official Linux kernel](https://github.com/raspberrypi/linux) on GitHub
   * [The official Android Linux kernel](https://android.googlesource.com/kernel/)
   * [The official Xilinx Linux kernel](https://github.com/Xilinx/linux_xlnx) on GitHub
 
@@ -81,9 +97,18 @@ Distributions often add some non-official drivers to their Linux kernel to enabl
 ## Building Your Own Kernel 
 
 It's not common to need your own kernel and you should be careful when you use one. It's good clean fun on your personal computer and I highly recommend building your own kernel. On a production system, however, you should consider a few questions before using a custom kernel:
-  - Why do I need it? Using a custom kernel prevents you from being able to submit bug reports to Ubuntu or RedHat. They don't want to have to disentangle their problems from your problems. So you should only customize the kernel on a production system if you suspect the current one is causing crashes and only after you have registered a bug report with your distribution. Do not use a newer kernel for optimizations or features, upgrade to a newer version of your distribution instead.
-  - Do I have the time to keep my custom kernel up to date? Distributions make kernel updates available all the time. The updates fix bugs and security problems so it's important to stay up to date. When new kernels are available you will have to update your local source and recompile. This means you should set aside a few hours every month to stay up-to-date.
-  - Do I only need to change or update kernel modules? It's easier to maintain custom modules than a whole kernel. If you just need driver updates consider compiling the relevant modules only. You will still have to compile your modules for every new kernel but the overall effort will be less.
+
+#### Why do I need it? 
+ 
+ Using a custom kernel prevents you from being able to submit bug reports to Ubuntu or RedHat. They don't want to have to disentangle their problems from your problems. So you should only customize the kernel on a production system if you suspect the current one is causing crashes and only after you have registered a bug report with your distribution. Do not use a newer kernel for optimizations or features, upgrade to a newer version of your distribution instead.
+
+#### Do I have the time to keep my custom kernel up to date?
+ 
+ Distributions make kernel updates available all the time. The updates fix bugs and security problems so it's important to stay up to date. When new kernels are available you will have to update your local source and recompile. This means you should set aside a few hours every month to stay up-to-date.
+ 
+#### Do I only need to change or update kernel modules? 
+
+It's easier to maintain custom modules than a whole kernel. If you just need driver updates consider compiling the relevant modules only. You will still have to compile your modules for every new kernel but the overall effort will be less.
 
 ### Get the Source 
 
@@ -93,7 +118,7 @@ You should get the kernel source from the distribution you're using. Distributio
 $ apt-get source linux-image-$(uname -r)
 ```
 
-NOTE: This command will initially fail. You must go update /etc/apt/sources.list to include source code repositories (the ones that start with deb-src). The lines are already in the file, but commented out. Delete the hash character (#) from the lines and rerun apt-get update.Notice you don't have to be root. You should compile the kernel as a non-root user (of course only root can install it). The apt-get source command will place the downloaded source in the current directory. Here's an example of what files are downloaded:
+> **NOTE** This command will initially fail. You must go update /etc/apt/sources.list to include source code repositories (the ones that start with deb-src). The lines are already in the file, but commented out. Delete the hash character (#) from the lines and rerun apt-get update.Notice you don't have to be root. You should compile the kernel as a non-root user (of course only root can install it). The apt-get source command will place the downloaded source in the current directory. Here's an example of what files are downloaded:
 
 ```
 $ ls -l
@@ -143,7 +168,7 @@ The default configuration enables all drivers that can be built as modules. That
 $ make localmodconfig
 ```
 
-The make localmodconfig command may ask some questions. You can hit "Enter" to select the default answers.
+The make `localmodconfig` command may ask some questions. You can hit "Enter" to select the default answers.
 
 ### Building and Installing the Kernel 
 
@@ -160,7 +185,7 @@ $ sudo make modules_install
 $ sudo make install
 ```
 
-WARNING: Installing the new kernel will update GRUB's configuration to make your new kernel bootable by default. It won't delete old ones so you'll be able to recover if there's a problem.
+> **WARNING** Installing the new kernel will update GRUB's configuration to make your new kernel bootable by default. It won't delete old ones so you'll be able to recover if there's a problem.
 
 ## Kernel Modules 
 
@@ -170,7 +195,7 @@ The Linux kernel is monolithic. It's one big program, unlike the Windows kernel,
 /lib/modules/$(uname -r)
 ```
 
-Notice that there's a capturing quote in the path. That's because kernel modules are specific to a particular kernel version. On my linux host the /lib/modules directory contains:
+Notice that there's a capturing quote in the path. That's because kernel modules are specific to a particular kernel version. On my linux host the `/lib/modules` directory contains:
 
 ```
 $ ls /lib/modules
@@ -183,11 +208,11 @@ $ ls /lib/modules
 3.13.0-62-generic  3.13.0-74-generic 3.13.0-88-generic 4.4.0-36-generic
 ```
 
-There are modules for everyinstalled kernel. Using the $(uname -r) construct is common when you're trying to refer to the module directory for the kernel that is running. Which is often the case.
+There are modules for every installed kernel. Using the `$(uname -r)` construct is common when you're trying to refer to the module directory for the kernel that is running. Which is often the case.
 
 ### Module Dependencies 
 
-The ''lsmod'' command shows you the modules that are present in your kernel
+The `lsmod` command shows you the modules that are present in your kernel
 
 ```
 $ lsmod
@@ -204,7 +229,7 @@ vmw_vmci        65536 2 vmw_vsock_vmci_transport,vmw_balloon
 [...snip...]
 ```
 
-The "module" field is the name of the module. The size is how much code is loaded (in bytes). The number in the first part of the "used by" field tells you how many programs or other modules are actively using the module. When this number is non-zero the kernel will not let you unload the module. The rest of the "used by" field shows you what other modules depend on the module. In this example the following is true:
+The `module` field is the name of the module. The size is how much code is loaded (in bytes). The number in the first part of the `used by` field tells you how many programs or other modules are actively using the module. When this number is non-zero the kernel will not let you unload the module. The rest of the "used by" field shows you what other modules depend on the module. In this example the following is true:
 
   * The "vsock" module is using36,864 bytes of memory for code.
   * The "vmw_vsock_vmci_transport" module depends on the "vsock" module
@@ -251,14 +276,14 @@ $ sudo rmmod cnic
 $ sudo rmmod uio
 ```
 
-Sometimes you might want to insert a module that you just compiled yourself and have not yet installed into /lib/modules. To inert a module by its filename you use the insmod command. If you want to use insmod to do what we did with modprobe above you run the following commands:
+Sometimes you might want to insert a module that you just compiled yourself and have not yet installed into `/lib/modules`. To inert a module by its filename you use the `insmod` command. If you want to use insmod to do what we did with `modprobe` above you run the following commands:
 
 ```
 $ sudo insmod /lib/modules/$(uname -r)/kernel/drivers/uio/uio.ko
 $ sudo insmod /lib/modules/$(uname -r)/kernel/drivers/net/ethernet/broadcom/cnic.ko
 ```
 
-If you try to install a module before it's dependencies are loaded insmod will fail with an error.
+If you try to install a module before it's dependencies are loaded `insmod` will fail with an error.
 
 ### Automatic Module Loading 
 
@@ -280,4 +305,4 @@ $ cat blacklist-ath_pci.conf
 blacklist ath_pci
 ```
 
-If you have a misbehaving driver or you intend to replace a supplied driver with one of your own you may need to blacklist it. As you can see above someone at Ubuntu explained why the ath_pci driver shouldn't be automatically loaded and gave us links to the open bug tracker entries that are relevant.
+If you have a misbehaving driver or you intend to replace a supplied driver with one of your own you may need to blacklist it. As you can see above someone at Ubuntu explained why the `ath_pci` driver shouldn't be automatically loaded and gave us links to the open bug tracker entries that are relevant.

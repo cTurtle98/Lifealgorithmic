@@ -14,22 +14,20 @@
 ## Introduction 
 
 When a program executes it becomes a process. If a program on disk is a book then reading it is a process. Linux allocates the computer's resources to processes as they need them. There are three categories of resources that a process uses:
-  - CPU time. A process consumes processor time as it executes. A CPU can only execute one process at a time, so the amount of compute time is limited by the number of CPU cores in the computer.
-  - Memory. Programs must be loaded into memory before they can execute and usually request additional memory to do their work. Memory is a limited resource, when it gets scarce computers run very slowly.
-  - File Handles. File handles are for more than just files. All I/O functions on Linux are performed using filehandles, including network I/O and communicating with device drivers.
+
+  - **CPU time**. A process consumes processor time as it executes. A CPU can only execute one process at a time, so the amount of compute time is limited by the number of CPU cores in the computer.
+  - **Memory**. Programs must be loaded into memory before they can execute and usually request additional memory to do their work. Memory is a limited resource, when it gets scarce computers run very slowly.
+  - **File Handles**. File handles are for more than just files. All I/O functions on Linux are performed using filehandles, including network I/O and communicating with device drivers.
 
 This guide will show you how to control process execution, examine process resources and understand how Linux manages the finite resources of the computer.
 
 ## CPU Usage 
 
+![image](../_static/images/process_statescb9b.png)
 
+The drawing is a simplified version of the state machine that is the essence of every Linux process. Every process begins in the ready state. In the ready state a process is awaiting processor time. When the system is not busy processes don't spend much time in the ready state, they go into the executing state right away. In the executing state the process is on the CPU. There are four ways out of the execute state. If the process is interrupted to make way for another ready process it goes back into the ready state. If a process is interrupted by a `CTRL-Z` it's halted and goes into the stopped state where it must wait for a user to resume it, which puts it back into the ready state. If the process requests I/O, like reading data from disk or waiting for a keystroke, it goes into the waiting state. There it will stay until whatever it's waiting for becomes available. Finally, if the program exits the process goes into the zombie state. In the zombie state the process can no longer execute and waits for it's parent process to acknowledge it's exit. A misbehaving program can sometimes forget to release its child processes from the zombie state, filling the system with zombie processes!
 
-![image](../images/process_statescb9b.png)
-
-
-
-The drawing is a simplified version of the state machine that is the essence of every Linux process. Every process begins in the ready state. In the ready state a process is awaiting processor time. When the system is not busy processes don't spend much time in the ready state, they go into the executing state right away. In the executing state the process is on the CPU. There are four ways out of the execute state. If the process is interrupted to make way for another ready process it goes back into the ready state. If a process is interrupted by a CTRL-Z it's halted and goes into the stopped state where it must wait for a user to resume it, which puts it back into the ready state. If the process requests I/O, like reading data from disk or waiting for a keystroke, it goes into the waiting state. There it will stay until whatever it's waiting for becomes available. Finally, if the program exits the process goes into the zombie state. In the zombie state the process can no longer execute and waits for it's parent process to acknowledge it's exit. A misbehaving program can sometimes forget to release its child processes from the zombie state, filling the system with zombie processes!
-The ''ps'' command will show you what state a process is in:
+The ``ps`` command will show you what state a process is in:
 
 ```
 $ ps -ly
@@ -38,9 +36,10 @@ R 1000 6030 15856 0 80  0  892 3544 -   pts/0  00:00:00 ps
 S 1000 15856 15846 0 80  0 5208 7021 wait  pts/0  00:00:00 bash
 ```
 
-The letter in the ''S'' column reveals what state the process is in. The table below shows you how to decode the letters:
+The letter in the ``S`` column reveals what state the process is in. The table below shows you how to decode the letters:
 
-^ Code ^ State ^ 
+| Code | State |
+| --- | --- | 
 | D | Waiting (Uninterruptible) |
 | R | Ready or Executing | 
 | S | Waiting (Interruptible) | 
@@ -52,6 +51,7 @@ The subsequent letters also give useful information. See the manual page of ps f
 ### CPU Time 
 
 Linux keeps track of the time a process spends executing. Execution time is collected as usertime, the time a process spends running it's own instructions, and as systemtime, the time that the Linux kernel spends executing on behalf of the process. Linux executes on behalf of a process when the process requests something from the kernel like reading a file or printing output to the screen. Time spent waiting for the disk doesn't count as system time only the time it took the kernel to initiate the disk operation.
+
 You can ask ps to sort it's output by a column of your choosing. The following command prints processes sorted by time, from the least to the most.
 
 ```
@@ -107,13 +107,9 @@ When the command exits time prints how much time the command spent executing:
 
 ```
 time find / > /dev/null
-
-real
-0m27.038s
-user
-0m2.610s
-sys
-0m7.824s
+real   0m27.038s
+user   0m2.610s
+sys    0m7.824s
 ```
 
 The output indicates that the command took 27 seconds to finish and that during that time it used 2.6 seconds running user time and 7.8 seconds of system time. We know that find simply listed all the files on my computer and doing so caused a lot of access to the disk. That explains the high system time and waiting for the disk explains why the process spent so much time waiting.
@@ -126,7 +122,7 @@ When there are more runnable processes than there are processors in the system t
   - Ensuring that no process is starved for CPU time.
   - Keeping scheduling overhead as low as possible.
 
-The priority of a process changes its share of CPU time in situations where the CPU is scarce. The priority system gives administrators the power to schedule long running CPU-intensive jobs on a workstation without sacrificing performance of interactive programs like web browsers. This is especially desirable on desktop systems where users expect their GUIs to remain snappy. The priority of each process is shown in the ''PRI'' column in the output of ''ps''. Lower numbers are higher priorities. On recent versions of Linux the priorities range from 0 (the highest) to 99 (the lowest). You can't set the priority of a process directly, but you can change it by changing the niceness of the process (the ''NI'' column). The niceness value ranges from -20 (the least nice or most favorable to the program) to 19 (the most nice and least favorable to the program).
+The priority of a process changes its share of CPU time in situations where the CPU is scarce. The priority system gives administrators the power to schedule long running CPU-intensive jobs on a workstation without sacrificing performance of interactive programs like web browsers. This is especially desirable on desktop systems where users expect their GUIs to remain snappy. The priority of each process is shown in the ``PRI`` column in the output of ``ps``. Lower numbers are higher priorities. On recent versions of Linux the priorities range from 0 (the highest) to 99 (the lowest). You can't set the priority of a process directly, but you can change it by changing the niceness of the process (the ``NI`` column). The niceness value ranges from -20 (the least nice or most favorable to the program) to 19 (the most nice and least favorable to the program).
 
 By default the nice value of a program is 0. You can use the nice command to launch a program with a custom niceness level:
 
@@ -153,7 +149,7 @@ Notice that the niceness has a direct effect on the priority:
 priority = 80 + niceness
 ```
 
-You can change the niceness of program once its running using the renice command:
+You can change the niceness of program once its running using the `renice` command:
 
 ```
 renice -n <niceness> <pid>...
@@ -170,13 +166,13 @@ To change users other than yourself you must be root. Also, regular users can on
 ```
 $ renice -n 19 $$
 28004 (process ID) old priority 0, new priority 19
-mimatera@matera:~$ ps -l
+$ ps -l
 F S  UID  PID PPID C PRI NI ADDR SZ WCHAN TTY     TIME CMD
 0 S 1000 28004 27994 0 99 19 - 5757 wait  pts/0  00:00:00 bash
 4 R 1000 28490 28004 0 99 19 - 2503 -   pts/0  00:00:00 ps
 ```
 
-Notice that the ''ps'' command ran with niceness 19.
+Notice that the ``ps`` command ran with niceness 19.
 
 ### Priority Pitfalls 
 
@@ -184,7 +180,7 @@ The Completely Fair Scheduler algorithm does a very good job. CFS was introduced
 
 ## Memory Use  
 
-Programs run from memory. Executing a program copies it from the disk into memory. Running programs request memory from the system as they operate, ideally they return memory to the system when they don't need it anymore. When a program exits all memory it used is reclaimed and made available for other programs. Linux tracks how much memory each process uses in different ways. Unfortunately, there is no simple answer to the question "how much memory is a process using?" The ''ps'' command can show you what the kernel knows about a process' memory:
+Programs run from memory. Executing a program copies it from the disk into memory. Running programs request memory from the system as they operate, ideally they return memory to the system when they don't need it anymore. When a program exits all memory it used is reclaimed and made available for other programs. Linux tracks how much memory each process uses in different ways. Unfortunately, there is no simple answer to the question "how much memory is a process using?" The ``ps`` command can show you what the kernel knows about a process' memory:
 
 ```
 $ ps -ly
@@ -195,8 +191,8 @@ S 1000 15856 15846 0 80  0 5208 7021 wait  pts/0  00:00:00 bash
 
 The two memory columns are:
 
-  - Resident Set Size (RSS) KiB. The resident set is the amount of physical memory that the program is using. Memory that's swapped to disk doesn't count.
-  - Virtual Memory Size (SZ) KiB. This is all the memory that's in use by the process, including memory that's paged out and shared with other programs. SZ is always greater than RSS.
+  - **Resident Set Size (RSS) KiB**. The resident set is the amount of physical memory that the program is using. Memory that's swapped to disk doesn't count.
+  - **Virtual Memory Size (SZ) KiB**. This is all the memory that's in use by the process, including memory that's paged out and shared with other programs. SZ is always greater than RSS.
 
 It's often useful to know what programs are using the most memory on a system. To do that you can set the sort order to RSS. The following command shows the 10 programs using the most memory:
 
@@ -214,7 +210,7 @@ S 1000 8608 4210 0 80  0 351624 463671 futex_ ?   00:17:08 chrome
 S 1000 8888 4210 0 80  0 389140 398256 futex_ ?   00:19:31 chrome
 ```
 
-Any of these number can change for a process second over second. The ''/proc'' filesystem gives administrators the opportunity to see exactly how the process is using its memory. There is a subdirectory in the ''/proc'' directory for the PID of each running process on the system. There's a wealth of data in that directory. A special directory ''/proc/self'' always contains the information of the current process (BASH if you're using the command line). The ''/proc/self/maps'' file shows you the memory layout of the current process.
+Any of these number can change for a process second over second. The ``/proc`` filesystem gives administrators the opportunity to see exactly how the process is using its memory. There is a subdirectory in the ``/proc`` directory for the PID of each running process on the system. There's a wealth of data in that directory. A special directory ``/proc/self`` always contains the information of the current process (BASH if you're using the command line). The ``/proc/self/maps`` file shows you the memory layout of the current process.
 
 ```
 $ cat /proc/self/maps
@@ -239,11 +235,11 @@ $ cat /proc/self/maps
 ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0         [vsyscall]
 ```
 
-Programmers might be familiar with the [stack] and [heap] areas. Those are where programs allocate dynamic memory.
+Programmers might be familiar with the `[stack]` and `[heap]` areas. Those are where programs allocate dynamic memory.
 
 ## File Descriptors 
 
-File descriptors are how programs communicate with the world. When a process accesses files or the network it requires a file descriptor. Communicating with other processes often also requires the use of a file descriptor. The ''/proc'' filesystem lets you view the file descriptors that any process has open.
+File descriptors are how programs communicate with the world. When a process accesses files or the network it requires a file descriptor. Communicating with other processes often also requires the use of a file descriptor. The ``/proc`` filesystem lets you view the file descriptors that any process has open.
 
 ```
 $ ls -l /proc/self/fd
@@ -256,12 +252,13 @@ lr-x------ 1 maximus maximus 64 Oct 25 21:22 3 -> /proc/31082/fd
 
 Notice that the files in this directory are symbolic links. The links point to the file that is open. Each file descriptor is a number. Three numbers are special.
 
-^ Number ^ Name ^ Description ^ 
-| 0 | ''STDIN'' | Standard input. \\ Command line programs get their input via this file descriptor. It's common to see this FD pointing to a TTY device (like ''/dev/pts/14'') | 
-| 1 | ''STDOUT'' | Standard output. \\ This is where a program's output goes. The shell redirection can affect what this is. | 
-| 2 | ''STDERR'' | Standard error. \\ This is where error messages for programs go. |
+| Number | Name | Description |
+| ---- | ---- | ---- |  
+| 0 | ``STDIN`` | **Standard Input**<br>Command line programs get their input via this file descriptor. It's common to see this FD pointing to a TTY device (like ``/dev/pts/14``) | 
+| 1 | ``STDOUT`` | **Standard Output**<br>This is where a program's output goes. The shell redirection can affect what this is. | 
+| 2 | ``STDERR`` | **Standard Error**<br>This is where error messages for programs go. |
 
-The shell redirect syntax has a noticeable effect on the ''STDOUT'' and ''STDERR'' file descriptors. Redirecting ''STDOUT'' to a file will show the file set to FD 1
+The shell redirect syntax has a noticeable effect on the ``STDOUT`` and ``STDERR`` file descriptors. Redirecting ``STDOUT`` to a file will show the file set to FD 1
 
 ```
 $ ls -l /proc/self/fd > ls.out
@@ -273,7 +270,7 @@ lrwx------ 1 maximus maximus 64 Oct 25 21:29 2 -> /dev/pts/14
 lr-x------ 1 maximus maximus 64 Oct 25 21:29 3 -> /proc/31150/fd
 ```
 
-Redirecting both ''STDOUT'' and ''STDERR'' to a file will show the file as FD 0 and 1:
+Redirecting both ``STDOUT`` and ``STDERR`` to a file will show the file as FD 0 and 1:
 
 ```
 $ ls -l /proc/self/fd > ls.out 2>&1
@@ -285,7 +282,7 @@ lrwx------ 1 maximus maximus 64 Oct 25 21:29 2 -> /home/mike/ls.out
 lr-x------ 1 maximus maximus 64 Oct 25 21:29 3 -> /proc/31150/fd
 ```
 
-Piping ''STDOUT'' to another command will show a special FD set as FD 1:
+Piping ``STDOUT`` to another command will show a special FD set as FD 1:
 
 ```
 $ ls -l /proc/self/fd | tee ls.out
@@ -319,15 +316,15 @@ $ kill -l
 
 There may be different signals on different UNIX systems, but most are common. The manual for signal(7) describes each of the signals fully. There are a few signals that every admin should know.
 
-  * ''SIGHUP'' (1). Hangup. This signal causes some programs to reload their configuration files or display some information.
-  * ''SIGINT'' (2). Interrupt. This is the signal that BASH sends to a program when you type ''CTRL-C'' on the keyboard.
-  * ''SIGQUIT'' (2). Quit. This is the signal that BASH sends to a program when you type ''CTRL-\'' on the keyboard, it's like ''SIGINT'' but the program should do a core dump as it quits.
-  * ''SIGKILL'' (9). Kill. With extreme prejudice. Programs cannot recover from a ''SIGKILL''. They will die immediately.
-  * ''SIGUSR1'' (10). User defined. Programs respond differently. The dd program prints a status update when it receives a ''SIGUSR1''.
-  * ''SIGSTOP'' (19). The program is frozen. This is the signal that BASH sends to a program when you type ''CTRL-Z''
-  * ''SIGCONT'' (18). Unfreeze the program. This signal is sent when your run the fg or bg command in BASH.
-  * ''SIGPIPE'' (13). Broken pipe. This happens when the program on the right side of a pipe (|) exits before the program on the left is done writing output or when a network connection is closed on the remote end.
-  * ''SIGBUS'' (7), ''SIGSEGV'' (11). Bus error and segmentation fault, respectively. Programmers will recognize these as the dreaded messages that happen when there's a bug in your program.
+  * ``SIGHUP`` (1). Hangup. This signal causes some programs to reload their configuration files or display some information.
+  * ``SIGINT`` (2). Interrupt. This is the signal that BASH sends to a program when you type ``CTRL-C`` on the keyboard.
+  * ``SIGQUIT`` (2). Quit. This is the signal that BASH sends to a program when you type ``CTRL-\`` on the keyboard, it's like ``SIGINT`` but the program should do a core dump as it quits.
+  * ``SIGKILL`` (9). Kill. With extreme prejudice. Programs cannot recover from a ``SIGKILL``. They will die immediately.
+  * ``SIGUSR1`` (10). User defined. Programs respond differently. The dd program prints a status update when it receives a ``SIGUSR1``.
+  * ``SIGSTOP`` (19). The program is frozen. This is the signal that BASH sends to a program when you type ``CTRL-Z``
+  * ``SIGCONT`` (18). Unfreeze the program. This signal is sent when your run the fg or bg command in BASH.
+  * ``SIGPIPE`` (13). Broken pipe. This happens when the program on the right side of a pipe (|) exits before the program on the left is done writing output or when a network connection is closed on the remote end.
+  * ``SIGBUS`` (7), ``SIGSEGV`` (11). Bus error and segmentation fault, respectively. Programmers will recognize these as the dreaded messages that happen when there's a bug in your program.
 
 You send a signal to a process using the kill command:
 
@@ -341,10 +338,10 @@ For example, to kill the process with PID 12345 you would run this command:
 $ kill 12345
 ```
 
-Kill will send a ''SIGTERM'' if you don't specify a signal. If that doesn't work run this command:
+Kill will send a ``SIGTERM`` if you don't specify a signal. If that doesn't work run this command:
 
 ```
 $ kill -9 12345
 ```
 
-Nothing can survive a ''kill -9''. Normal users can only send signals to processes that belong to them. Root can send a signal to any process.
+Nothing can survive a ``kill -9``. Normal users can only send signals to processes that belong to them. Root can send a signal to any process.

@@ -55,7 +55,7 @@ brw-rw---- 1 root disk 8, 17 Sep 29 10:34 /dev/sdb1
 brw-rw---- 1 root disk 8, 18 Sep 29 11:08 /dev/sdb2
 ```
 
-The partitions are freshly created and contain no filesystem. The next task is to format the filesystems. Create filesystems on /dev/sdb1 and /dev/sdb2 with the following specifications:
+The partitions are freshly created and contain no filesystem. The next task is to format the filesystems. Create filesystems on `/dev/sdb1` and `/dev/sdb2` with the following specifications:
 
   * /dev/sdb1
     * ext4 filesystem
@@ -90,23 +90,23 @@ $ sudo apt-get install apache2
 
 ### Step 1: Mount The New Volume in a Temporary Directory 
 
-Mount /dev/sdb2 onto /mnt. This is only temporary.
+Mount `/dev/sdb2` onto `/mnt`. This is only temporary.
 
 ```
 $ sudo mount /dev/sdb2 /mnt
 ```
 
-Verify that the mount succeeded using the mount command with no arguments. If you don't see your /dev/sdb2 partition mounted check your work.
+Verify that the mount succeeded using the mount command with no arguments. If you don't see your `/dev/sdb2` partition mounted check your work.
 
 ### Step 2: Copy the contents of /var/www into the new partition. 
 
-This command copies the existing contents of /var/www into your new filesystem (which should be mounted on /mnt).
+This command copies the existing contents of `/var/www` into your new filesystem (which should be mounted on `/mnt`).
 
 ```
 $ sudo cp -Rp /var/www/* /mnt
 ```
 
-Be sure to use the "p" option. That preserves file ownership and permissions. Things will go wrong without it. Use ls to verify that the data is copied.
+Be sure to use the `-p` option. That preserves file ownership and permissions. Things will go wrong without it. Use ls to verify that the data is copied.
 
 ### Step 3: Unmount and Move the Filesystem 
 
@@ -122,15 +122,15 @@ Now re-mount it in the place where it belongs:
 $ sudo mount /dev/sdb2 /var/www
 ```
 
-Verify that your device is properly mounted using the df command.
+Verify that your device is properly mounted using the `df` command.
 
 ### Step 4: Repeat! 
 
-Repeat this procedure for /dev/sdb1 and /home. Be careful! Breaking your home directory can cause problems logging in to your machine so be sure that you fully verify each step before you move on.
+Repeat this procedure for `/dev/sdb1` and `/home`. Be careful! Breaking your home directory can cause problems logging in to your machine so be sure that you fully verify each step before you move on.
 
 ## Make your Changes Permanent 
 
-The mounts you made in the previous parts are only temporary because they're only held in memory. If you want the mounts to persist after a reboot you must add the mount points to the /etc/fstab file. That file tells Linux what to mount on startup. Here's the default /etc/fstab on your VM:
+The mounts you made in the previous parts are only temporary because they're only held in memory. If you want the mounts to persist after a reboot you must add the mount points to the `/etc/fstab` file. That file tells Linux what to mount on startup. Here's the default `/etc/fstab` on your VM:
 
 ```
 # /etc/fstab: static file system information.
@@ -154,7 +154,7 @@ UUID=<put-the-UUID-here> /home    ext4  defaults    0    3
 UUID=<put-the-UUID-here> /var/www   btrfs  defaults    0    3
 ```
 
-Be absolutely sure that you entered the UUIDs that match the ones in the filesystems you created. If you did this step correctly you should be able to verify that fstab is correct by unmounting and remounting the filesystems:
+Be absolutely sure that you entered the UUIDs that match the ones in the filesystems you created. If you did this step correctly you should be able to verify that `/etc/fstab` is correct by unmounting and remounting the filesystems:
 
 ```
 $ sudo umount /home
@@ -163,7 +163,7 @@ $ sudo mount /home
 $ sudo mount /var/www
 ```
 
-If you get "device is busy" errors when you umount be sure that your working directory is not in one of the mounts. Notice you can now mount /home and /var/www without passing in a device parameter. That's because the device is listed in /etc/fstab! When you are convinced that your mounts are working reboot the system:
+If you get "device is busy" errors when you umount be sure that your working directory is not in one of the mounts. Notice you can now mount `/home` and `/var/www` without passing in a device parameter. That's because the device is listed in `/etc/fstab`. When you are convinced that your mounts are working reboot the system:
 
 ```
 $ sudo reboot
@@ -185,9 +185,3 @@ Turn in the files:
   - Answers to the questions
 
 Submit your homework on Canvas.
-
-## Grading 
-
-  * 15 points for correct files
-  * 5 points for your answers
-

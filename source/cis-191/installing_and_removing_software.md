@@ -14,7 +14,8 @@ The process of installing and removing software is one of the greatest strengths
 
 Installing and removing software on Linux means making yourself familiar with the package manager on your system. There are several package managers on Linux and people argue over which one is the best. They all have strengths and weaknesses. Your choice of Linux distribution comes with the distribution's preferred package manager. This lecture will focus on Debian's package manager called apt, but the concepts transfer directly to other distributions. Below is a table of Linux distributions and their package managers:
 
-^ Package Manager ^ Distributions ^
+| Package Manager | Distributions |
+| --- | --- | 
 | Advanced Package Manager (apt) | Debian and derivatives including Ubuntu, Raspbian (Raspberry Pi), Knoppix, Linux Mint, Security Onion and Kali Linux | 
 | Redhat Package Manager (rpm) | Fedora, RedHat Enterprise Linux and CentOS, SuSE Linux | 
 | Itsy Package Manager (ipkg) | OpenWRT (some versions), Openmoko, webOS, QNAP Linux NAS appliances | 
@@ -34,6 +35,7 @@ The list isn't complete and all package managers aren't as full-featured as apt 
 ## Understanding Dependencies 
 
 When a program in one package uses libraries or commands from another it's said to dependon the other package. For example, in order to use Firefox you must have a graphical desktop (Firefox doesn't have a command line interface). Therefore the Firefox package depends on Xwindows and you cannot install Firefox if Xwindows is not installed. Also, you cannot remove Xwindows without first removing Firefox. The package manager understands these dependencies and does two important things for you: It automatically installs dependencies when you ask for a package and it prevents you from breaking a package by uninstalling something it depends on.
+
 To see a package's dependencies do this:
 
 ```
@@ -95,7 +97,7 @@ A repository is an online source of packages. By default Ubuntu comes installed 
 $ sudo apt-get update
 ```
 
-The update command only updates the cache, not the packages. I'll talk about updating packages later. It's always safe to run the apt-get update command and it's a good thing to do before you install any packages or use the apt-cache command. Running apt-get update shows you what repositories you have enabled. Those repositories are listed in your /etc/apt/sources.list file. Here's the default file on Ubuntu 14.04:
+The update command only updates the cache, not the packages. I'll talk about updating packages later. It's always safe to run the apt-get update command and it's a good thing to do before you install any packages or use the apt-cache command. Running apt-get update shows you what repositories you have enabled. Those repositories are listed in your `/etc/apt/sources.list` file. Here's the default file on Ubuntu 14.04:
 
 ```
 # deb cdrom:[Ubuntu 14.04.1 LTS _Trusty Tahr_ - Release amd64 (20140722.2)]/ trusty main restricted
@@ -344,7 +346,6 @@ This will install the almost 2G of packages needed to convert Ubuntu Server to U
 ```
 $ sudo apt-get remove ubuntu-desktop
 $ sudo apt-get autoremove
-
 ```
 
 ## Updating to the Latest Versions 

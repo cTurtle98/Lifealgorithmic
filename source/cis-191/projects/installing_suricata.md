@@ -31,6 +31,7 @@ $ sudo apt-get autoremove
 
 Then follow the instructions here to add the PPA:
  [https://redmine.openinfosecfoundation.org/projects/suricata/wiki/Ubuntu_Installation_-_Personal_Package_Archives_%28PPA%29#Beta-releases](https://redmine.openinfosecfoundation.org/projects/suricata/wiki/Ubuntu_Installation___Personal_Package_Archives_(PPA)#Beta_releases)
+
 What version of suricata did you install?
 
 ## Compile Your Own Copy 
@@ -49,11 +50,10 @@ $ sudo apt-get install pkg-config autoconfautogenbuild-essential
 ```
 
 There are more packages needed to build suricata (you will need to figure out which ones). But with the above installed you can get started. Here's the build procedure:
-```
 
+```
 $ cd ~/suricata
-$
-git checkoutsuricata-3.1.3
+$ git checkoutsuricata-3.1.3
 $ ./autogen.sh
 $ ./configure
 $ ./make
@@ -86,9 +86,3 @@ Submit the executable with the assignment.
   - ~/suricata/src/.libs/suricata
 
 Submit your homework on canvas.
-
-## Grading 
-
-  * 10 points for parts 1 and 2
-  * 10 points for part 3
-

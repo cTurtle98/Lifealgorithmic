@@ -1,4 +1,5 @@
 Logical Volume Management is a system in Linux that allows administrators to use cutting-edge technology to manage disks. Unlike partitioning, which splits up storage, LVM brings multiple disks together to form flexible filesystems with advanced features.
+
 The lecture slides are [here](https://docs.google.com/a/lifealgorithmic.com/presentation/d/1I4kyMxPvxxV5tUbKZPU_rQgn5WyJIdly-E8jOd2TXpE/edit?usp=sharing).
 
 ### Commands 
@@ -7,23 +8,19 @@ The lecture slides are [here](https://docs.google.com/a/lifealgorithmic.com/pres
   * vgcreate / vgremove / vgdisplay
   * lvcreate / lvremove / lvdisplay
 
-Configuration
+### Configuration
+
   * None
 
-Further Reading
-  * LVM on the Ubuntu Wiki -[https://wiki.ubuntu.com/Lvm](https://wiki.ubuntu.com/Lvm)
-  * The Official LVM HowTo -[http://tldp.org/HOWTO/LVM-HOWTO/](http://tldp.org/HOWTO/LVM-HOWTO/)
+### Further Reading
 
-Contents
-  - [1 Commands](#toc_commands)
-  - [2 Introduction](#toc_introduction)
-  - [3 Making a Disk Ready for LVM](#toc_making_a_disk_ready_for_lvm)
-  - [4 Creating Logical Volumes](#toc_creating_logical_volumes)
-  - [5 Undoing It All](#toc_undoing_it_all)
+  * [LVM on the Ubuntu Wiki](https://wiki.ubuntu.com/Lvm)
+  * [The Official LVM HowTo](http://tldp.org/HOWTO/LVM-HOWTO/)
 
 ## Introduction 
 
 Modern Linux systems need flexible storage, not just disks. The Logical Volume Manager organizes the storage on individual disks into larger pools that can be allocated to filesystems. Unlike partitioning the allocation can change while the system is running. This is a huge benefit to the administrator because mistakes can be fixed after the system is in production. Here's a few things you can do using LVM:
+
   * Increase the size of a filesystem that needs more space.
   * Reduce the size of a filesystem to make space available.
   * Transparently migrate a filesystem from one disk to another while the system is running.
@@ -32,8 +29,9 @@ Modern Linux systems need flexible storage, not just disks. The Logical Volume M
 
 ## Making a Disk Ready for LVM 
 
-LVM can work on disk partitions or whole disks. By default when Ubuntu installs it creates a partition (on your VMs /dev/sda5) for LVM. This is because the boot disk needs to have other partitions in order for GRUB to work. If you have a computer with disks dedicated to file service those disks don't need to be partitioned, they can be turned into an LVM disk. When a partition or disk is used for LVM it becomes a physical volume. Managing physical volumes is done with pvcreate and pvremove. Here's how to partition a disk and create a physical volume in the first partition:
-Warning: This will destroy ALL DATA on /dev/sdb
+LVM can work on disk partitions or whole disks. By default when Ubuntu installs it creates a partition (on your VMs `/dev/sda5`) for LVM. This is because the boot disk needs to have other partitions in order for GRUB to work. If you have a computer with disks dedicated to file service those disks don't need to be partitioned, they can be turned into an LVM disk. When a partition or disk is used for LVM it becomes a physical volume. Managing physical volumes is done with pvcreate and pvremove. Here's how to partition a disk and create a physical volume in the first partition:
+
+> **Warning!** This will destroy ALL DATA on /dev/sdb
 
 ```
 $ sudo parted /dev/sdb mklabel gpt
@@ -61,11 +59,11 @@ $ sudo pvdisplay /dev/sdb1
  PV UUID        ysQF8n-9ig0-Ckkc-HjY2-C4KJ-rzUM-OCoKMk
 ```
 
-The volume is a "new" volume because it is not yet a part of a volume group. A physical volume can't be used until it joins a group. If a whole disk is to work with LVM it's better not to partition it. Instead, you can add the entire device as a physical volume. In order to do that we have to first delete /dev/sdb1 from LVM:
+The volume is a "new" volume because it is not yet a part of a volume group. A physical volume can't be used until it joins a group. If a whole disk is to work with LVM it's better not to partition it. Instead, you can add the entire device as a physical volume. In order to do that we have to first delete `/dev/sdb1` from LVM:
 
 ```
 $ sudo pvremove /dev/sdb1
- Labels on physical volume "/dev/sdb1" successfully wiped
+Labels on physical volume "/dev/sdb1" successfully wiped
 ```
 
 Now let's delete the existing partitions:
@@ -75,14 +73,14 @@ $ sudo parted /dev/sdb rm 1
 Information: You may need to update /etc/fstab.
 ```
 
-However, we can't yet create a physical volume on /dev/sdb. If you try to do so you will encounter this error message:
+However, we can't yet create a physical volume on `/dev/sdb`. If you try to do so you will encounter this error message:
 
 ```
 $ sudo pvcreate /dev/sdb
- Device /dev/sdb not found (or ignored by filtering).
+Device /dev/sdb not found (or ignored by filtering).
 ```
 
-LVM is trying to save you from a terrible mistake. It noticed that there's a partition table on the disk and won't act because it thinks there's a good chance it will wipe out a lot of data. If this happens you can use dd to blank the partition then create a physical volume on /dev/sdb:
+LVM is trying to save you from a terrible mistake. It noticed that there's a partition table on the disk and won't act because it thinks there's a good chance it will wipe out a lot of data. If this happens you can use dd to blank the partition then create a physical volume on `/dev/sdb`:
 
 ```
 $ sudo dd if=/dev/zero of=/dev/sdb bs=1M count=1
@@ -95,11 +93,14 @@ pvcreate /dev/sdb
 ```
 
 Now you have disk space to work with.
-Creating a Volume GroupVolume groups are pools of data that you can allocate for filesystems. Since you have /dev/sdb available you can now add it to an existing volume group or create a new volume group to use:
+
+## Creating a Volume Group
+
+Volume groups are pools of data that you can allocate for filesystems. Since you have /dev/sdb available you can now add it to an existing volume group or create a new volume group to use:
 
 ```
 $ sudovgcreate MyNewGroup /dev/sdb
- Volume group "MyNewGroup" successfully created
+Volume group "MyNewGroup" successfully created
 ```
 
 Let's look closely at what we've just done:
@@ -136,18 +137,20 @@ $ sudo vgdisplay -v MyNewGroup
  Total PE / Free PE  5119 / 5119
 ```
 
-The volume group contains the physical volume /dev/sdb. Notice the VG Size is 20G. That's a useful number but the more important one is Total PE. PE is short for Physical Extent. In LVM space is divided into extents. The size of a physical extent is 4.00 MiB. The next step is to allocate physical extents to logical volumes.
+The volume group contains the physical volume `/dev/sdb`. Notice the VG Size is 20G. That's a useful number but the more important one is Total PE. PE is short for Physical Extent. In LVM space is divided into extents. The size of a physical extent is 4.00 MiB. The next step is to allocate physical extents to logical volumes.
 
 ## Creating Logical Volumes 
 
-Filesystems can only exist inside of logical volumes. Logical volumes come into existence when we allocate space out of a volume group for that logical volume. There are different types of LVs that have interesting properties. Let's create a simple logical volume with the space we have from /dev/sdb.
+Filesystems can only exist inside of logical volumes. Logical volumes come into existence when we allocate space out of a volume group for that logical volume. There are different types of LVs that have interesting properties. Let's create a simple logical volume with the space we have from `/dev/sdb`.
 
 ```
 $ sudo lvcreate -n MyLogVol -l 5119 MyNewGroup
- Logical volume "MyLogVol" created
+Logical volume "MyLogVol" created
 ```
 
-Notice that we specified the number of extents to use with the -l 5119 argument. That was the entire number of free extents. Let's see what we've done:
+Notice that we specified the number of extents to use with the `-l 5119` argument. That was the entire number of free extents. 
+
+Let's see what we've done:
 
 ```
 $ sudo vgdisplay -v MyNewGroup
@@ -198,7 +201,7 @@ $ sudo vgdisplay -v MyNewGroup
  Total PE / Free PE  5119 / 0
 ```
 
-One important thing to notice is that the logical volume has a path (/dev/MyNewGroup/MyLogVol). Let's look at that path:
+One important thing to notice is that the logical volume has a path (`/dev/MyNewGroup/MyLogVol`). Let's look at that path:
 
 ```
 $ ls -l /dev/MyNewGroup
@@ -208,7 +211,7 @@ $ ls -l /dev/dm-2
 brw-rw---- 1 root disk 252, 2 Oct 8 11:57 /dev/dm-2
 ```
 
-The device /dev/dm-2 is a block device! We can format it an place a filesystem on it:
+The device `/dev/dm-2` is a block device! We can format it an place a filesystem on it:
 
 ```
 $ sudo mkfs.ext4 /dev/MyNewGroup/MyLogVol
@@ -250,20 +253,19 @@ Next you delete the logical volume you created:
 ```
 $ sudo lvremove /dev/MyNewGroup/MyLogVol
 Do you really want to remove and DISCARD active logical volume MyLogVol? [y/n]: y
- Logical volume "MyLogVol" successfully removed
+Logical volume "MyLogVol" successfully removed
 ```
 
 Now you delete the volume group:
 
 ```
 $ sudo vgremove MyNewGroup
- Volume group "MyNewGroup" successfully removed
+Volume group "MyNewGroup" successfully removed
 ```
 
 Finally you erase the logical volume information on your disk:
 
 ```
 $ sudo pvremove /dev/sdb
- Labels on physical volume "/dev/sdb" successfully wiped
+Labels on physical volume "/dev/sdb" successfully wiped
 ```
-

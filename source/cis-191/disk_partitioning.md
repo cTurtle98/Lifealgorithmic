@@ -1,15 +1,20 @@
 Fixed disks are subdivided into volumes called partitions. In this lesson you'll learn how to view and manage disk partitions.
 The lecture slides can be found [here](https://docs.google.com/a/lifealgorithmic.com/presentation/d/18hAGUgC34TvlF586uTv4cLpNGVhwHwQgPxWhUnpNiNA/edit?usp=sharing).
-Commands
+
+#### Commands
+
   * parted
 
-Configuration
+#### Configuration
+
   * none
 
-Further Reading
+#### Further Reading
+
   * [The GNU Parted User Manual](http://www.gnu.org/software/parted/manual/parted.html)
 
-Related
+#### Related
+
   * [Adding Disks to your VM](adding_disks_to_your_vm)
 
 ## Introduction 
@@ -23,11 +28,7 @@ Partitioning disks to meet these requirements is the job of an administrator.
 
 ## Partitions and Block Devices 
 
-
-
-![image](../images/disk_partitions_1.png)
-
-
+![image](../_static/images/disk_partitions_1.png)
 
 There's an easy way to see the partitions on the system disk of your VM:
 
@@ -39,8 +40,9 @@ brw-rw---- 1 root disk 8, 2 Sep 17 16:01 /dev/sda2
 brw-rw---- 1 root disk 8, 5 Sep 17 16:01 /dev/sda5
 ```
 
-Notice that there's a "base" disk /dev/sda and three "derived" disks (/dev/sda1, /dev/sda2 and /dev/sda3). They are all block devices and each of them can be separately formatted with a filesystem. The device /dev/sda represents the entire disk and the derived disks are partitions inside that disk. The picture shows a schematic of the relationship between the base disk and it's partitions.
-If you were to format /dev/sda you would destroy the data on /dev/sda1, /dev/sda2 and /dev/sda5.
+Notice that there's a "base" disk `/dev/sda` and three "derived" disks (`/dev/sda1`, `/dev/sda2` and `/dev/sda3`). They are all block devices and each of them can be separately formatted with a filesystem. The device `/dev/sda` represents the entire disk and the derived disks are partitions inside that disk. The picture shows a schematic of the relationship between the base disk and it's partitions.
+
+If you were to format `/dev/sda` you would destroy the data on `/dev/sda1`, `/dev/sda2` and `/dev/sda5`.
 
 ## Using Parted 
 
@@ -98,7 +100,7 @@ Number Start  End   Size  Type   File system Flags
 
 ## Creating a Partition Table 
 
-If you have followed the steps in[Adding Disks to your VM](adding_disks_to_your_vm)then you should have two additional disks (/dev/sdb and /dev/sdc). Initially they will be blank:
+If you have followed the steps in [Adding Disks to your VM](adding_disks_to_your_vm) then you should have two additional disks (`/dev/sdb` and `/dev/sdc`). Initially they will be blank:
 
 ```
 student@ubuntu:~$ sudo parted /dev/sdb
@@ -110,7 +112,7 @@ Welcome to GNU Parted! Type 'help' to view a list of commands.
 Error: /dev/sdb: unrecognised disk label                 
 ```
 
-The mklabel command makes a partition table. We'll make a GPT (GUID Partition Table) label. GPT is a newer label type that supports disks that are greater than 2TB. The old type MSDOS is used by default for compatibility, but even Windows has switched over.
+The `mklabel` command makes a partition table. We'll make a GPT (GUID Partition Table) label. GPT is a newer label type that supports disks that are greater than 2TB. The old type MSDOS is used by default for compatibility, but even Windows has switched over.
 
 ```
 (parted) mklabel gpt
@@ -177,4 +179,4 @@ $ ls -ls /dev/sdb*
 
 ## Using Partitions 
 
-In order for the partitions we just created to be usable they need to be formatted and mounted. More information on that can be found in[Files, Filesystems and Block Devices](files_filesystems_and_block_devices)and[Filesystems and Mount](filesystems_and_mount).
+In order for the partitions we just created to be usable they need to be formatted and mounted. More information on that can be found in [Files, Filesystems and Block Devices](files_filesystems_and_block_devices) and [Filesystems and Mount](filesystems_and_mount).

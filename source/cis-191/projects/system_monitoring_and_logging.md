@@ -1,4 +1,4 @@
-# Project 4: System Monitoring and Logging  
+# System Monitoring and Logging
 
 In this project you'll examine a Linux machine to answer summary information and you'll examine system logs to find useful information. 
 
@@ -30,8 +30,3 @@ The computer in question had a serious problem during the time covered by the lo
 # Turn In 
 
 Answers to the above questions on Canvas.
-
-# Grading  
-
-  * 10 points for part 1 
-  * 10 points for part 2 

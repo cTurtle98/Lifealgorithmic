@@ -39,13 +39,13 @@ Here's a useful trick. You're trying to configure GRUB and you don't know where 
 $ find /etc -name '*grub*'
 ```
 
-Notice the single quotes (''%%'%%''). They are required to keep the BASH from interpreting your wildcard characters (''*''). Never forget the quotes! BASH on Ubuntu tries to help by not interpreting the stars when the command is find but don't expect that kind of nicety from other Linux distributions. What if you only wanted to find directories with grub in the name?
+Notice the single quotes (`'`). They are required to keep the BASH from interpreting your wildcard characters (`*`). Never forget the quotes! BASH on Ubuntu tries to help by not interpreting the stars when the command is find but don't expect that kind of nicety from other Linux distributions. What if you only wanted to find directories with grub in the name?
 
 ```
 $ find /etc -type d -name '*grub*'
 ```
 
-The ''-type'' flag tells find to only look at directories. Files, symbolic links, directories and devices among others can be found by type. 
+The ``-type`` flag tells find to only look at directories. Files, symbolic links, directories and devices among others can be found by type. 
 
 Find can take a very long time if you're looking through a lot of files. If you only want to limit how many directories find descends you do this:
 
@@ -53,7 +53,7 @@ Find can take a very long time if you're looking through a lot of files. If you 
 $ find /haystack -maxdepth 2 -name '*needle*'
 ```
 
-That only looks in the current directory and the immediate subdirectories.The ''-maxdepth'' argument must be specified first. If you're looking for a file and you have a lot to search through here's a procedure that will save time. Start with a small maxdepth and make it bigger if you don't find what you're looking for:
+That only looks in the current directory and the immediate subdirectories.The ``-maxdepth`` argument must be specified first. If you're looking for a file and you have a lot to search through here's a procedure that will save time. Start with a small maxdepth and make it bigger if you don't find what you're looking for:
 
 ```
 $ find /haystack -maxdepth 2 -name '*needle*'

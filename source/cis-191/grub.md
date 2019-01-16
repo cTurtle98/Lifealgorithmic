@@ -70,17 +70,7 @@ total 76
 -rw-r--r-- 1 root root  483 Apr 9 2013 README
 ```
 
-Notice that the file names have numbers. This is because they're run in order: 00 first and 99 last. GRUB cannot see into complex Linux partitions (like LVM) so the 
-```
-/boot
-```
-
- partition is usually formatted with the ext2 filesystem. When you run update-grub GRUB's generated configuration is placed into 
-```
-/boot
-```
-
-. Here's an example of grub.cfg
+Notice that the file names have numbers. This is because they're run in order: 00 first and 99 last. GRUB cannot see into complex Linux partitions (like LVM) so the `/boot` partition is usually formatted with the ext2 filesystem. When you run update-grub GRUB's generated configuration is placed into `/boot`. Here's an example of grub.cfg
 
 ```
 #

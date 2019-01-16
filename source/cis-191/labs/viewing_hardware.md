@@ -2,30 +2,11 @@ In this project you will examine the hardware on your Linux machine. You can per
 
 ## Introduction 
 
-Modern computers have  many devices, it can be difficult to know exactly what's inside the box. Even when you can look into the box, most of the devices that Linux uses aren't visible. The 
-```
-lshw
-```
-
- command shows you what devices are connected to your computer.
+Modern computers have  many devices, it can be difficult to know exactly what's inside the box. Even when you can look into the box, most of the devices that Linux uses aren't visible. The `lshw` command shows you what devices are connected to your computer.
 
 ## Part 1: Gather the Information 
 
-```
-lshw
-```
-
- must be run as root in order to see the full set of hardware available. Be sure to execute it using the 
-```
-sudo
-```
-
- command. The output of 
-```
-lshw
-```
-
- can be very long, redirect it to a file and view the file with your favorite editor.
+`lshw` must be run as root in order to see the full set of hardware available. Be sure to execute it using the `sudo` command. The output of `lshw` can be very long, redirect it to a file and view the file with your favorite editor.
 
 ## Part 2: What's Inside? 
 
@@ -36,18 +17,7 @@ Now that you have the raw information you should be able to answer the following
 
 ## Turn In 
 
-  - Submit the output of lshw as a text file called 
-```
-lshw.txt
-```
-
- (no screenshots!)
+  - Submit the output of lshw as a text file called `lshw.txt` (no screenshots!)
   - The answers to the above questions.
 
 Submit your answers on Canvas.
-
-## Grading 
-
-  - 1 points for lshw.txt
-  - 4 points for correct answers.
-

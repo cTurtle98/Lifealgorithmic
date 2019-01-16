@@ -29,33 +29,21 @@ Each process in Linux "sees" a completely empty memory space (or nothing but emp
 
 ```
 $ sudo cat /proc/1212/status | grep Vm
-VmPeak:
-  7212 kB
-VmSize:
-7212 kB
-VmLck:
-    0 kB
-VmPin:
-    0 kB
-VmHWM:
-   360 kB
-VmRSS:
-   360 kB
-VmData:
-  184 kB
-VmStk:
-   136 kB
-VmExe:
-   44 kB
-VmLib:
-  1908 kB
-VmPTE:
-   36 kB
-VmSwap:
-   0 kB
+VmPeak:	    7444 kB
+VmSize:	    7444 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	     832 kB
+VmRSS:	     832 kB
+VmData:	     316 kB
+VmStk:	     132 kB
+VmExe:	      48 kB
+VmLib:	    1952 kB
+VmPTE:	      60 kB
+VmSwap:	       0 kB
 ```
 
-There's a lot more information in that file, but grepping for "Vm" limits the output only to virual memory usage. The output shows that the current memory utilization (VmSize) is 7212 kB (or 1803 pages). We can see what the total memory usage for the system is using by looking in the /proc/vmstat pseudo file: 
+There's a lot more information in that file, but grepping for "Vm" limits the output only to virtual memory usage. The output shows that the current memory utilization (VmSize) is 7212 kB (or 1803 pages). We can see what the total memory usage for the system is using by looking in the `/proc/vmstat` pseudo file: 
 
 ```
 $ cat /proc/meminfo 
@@ -80,15 +68,11 @@ Writeback:             0 kB
 [snip]
 ```
 
-The output shows that my system is using 772516 kB (2048172 KB total â 1275656 KB free) memory.
+The output shows that my system is using 772516 kB (2048172 KB total of 1275656 KB free) memory.
 
 ### Swap 
 
-
-
-![image](../images/processes%2c_memory_and_swap_1.png)
-
-
+![image](../_static/images/processes%252c_memory_and_swap_1.png)
 
 The picture on the right shows what happens when a processes on the operating system request more memory than is physically present in the system. The additional pages required can be served by Linux but the overflow goes into swap. Swap is space on the disk used to back memory. Having swap means that Linux can gracefully handle situations where there is a short-term oversubscription to memory. You can see how much swap is used by looking in /proc/meminfo
 
@@ -125,7 +109,7 @@ The output of the command tells you when the last reboot was. This is important 
 
 When the number exceed the number of processors on the machine it indicates that the machine is being asked to work beyond it's peak capacity and that the scheduler is rationing time. In some cases that may be normal, but usually it means that something has gone out of control.
 
-The top command shows a continuously updated view of running processes:
+The `top` command shows a continuously updated view of running processes:
 
 ```
 $ top
@@ -157,7 +141,7 @@ KiB Swap: 5521404 total,    0 used, 5521404 free. 3783600 cached Mem
  19 root   20  0    0   0   0 S  0.0 0.0  0:00.00 rcuob/2  
 ```
 
-The top command is a good "first look" at what the system is doing. You can sort the output by different columns. The vmstat command is similar to top in that it shows you an updating view of the system's performance. With no arguments it shows you the averages since boot:
+The top command is a good "first look" at what the system is doing. You can sort the output by different columns. The `vmstat` command is similar to top in that it shows you an updating view of the system's performance. With no arguments it shows you the averages since boot:
 
 ```
 $ vmstat
@@ -166,7 +150,7 @@ r b  swpd  free  buff cache  si  so  bi  bo  in  cs us sy id wa st
 0 0   0 543328 863172 3797364  0  0   1   2  2  1 1 0 99 0 0
 ```
 
-With the -n argument it continuously updates the output:
+With the `-n` argument it continuously updates the output:
 
 ```
 $ vmstat -n 1
@@ -182,11 +166,11 @@ r b  swpd  free  buff cache  si  so  bi  bo  in  cs us sy id wa st
 0 0   0 543220 863176 3793988  0  0   0   0 197 223 0 0 100 0 0
 ```
 
-Powertop is available on platforms that support power monitoring, like laptops and mobile devices. Most desktops don't support power monitoring but powertop still shows you what processes and devices are using power, it just doesn't tell you how much in terms of watts. Powertop is text-menu driven.
+`powertop` is available on platforms that support power monitoring, like laptops and mobile devices. Most desktops don't support power monitoring but `powertop` still shows you what processes and devices are using power, it just doesn't tell you how much in terms of watts. `powertop` is text-menu driven.
 
 ## Files and Network Sockets 
 
-The most important tool for monitoring files on your host is lsof (list open files). lsof lists all the open file handles for every process. On a busy machine its output can be thousands of lines so if you're looking for something specific you can pipe the output through grep:
+The most important tool for monitoring files on your host is `lsof` (list open files). lsof lists all the open file handles for every process. On a busy machine its output can be thousands of lines so if you're looking for something specific you can pipe the output through grep:
 
 ```
 $ sudo lsof | grep Desktop
@@ -199,7 +183,7 @@ lsof   21394         root cwd    DIR        0,36   4096  4849689 /home/mimatera/
 lsof   21395         root cwd    DIR        0,36   4096  4849689 /home/mimatera/Desktop
 ```
 
-You can find open files by user ID and other selectors. See the manual page for the full list. The netstat command shows you the open network sockets on a host. The output of lsof also shows you sockets but doesn't give you specifics; netstat does. The following command shows you all open TCP connections: 
+You can find open files by user ID and other selectors. See the manual page for the full list. The `netstat` command shows you the open network sockets on a host. The output of `lsof` also shows you sockets but doesn't give you specifics; `netstat` does. The following command shows you all open TCP connections: 
 
 ```
 $ netstat -tn
@@ -218,7 +202,7 @@ tcp6    0   0 2607:f380:80f:f42:39941 2607:f8b0:4005:803::443 ESTABLISHED
 tcp6    0   0 2607:f380:80f:f42:44852 2607:f8b0:400e:c04:5228 ESTABLISHED
 ```
 
-The 'l' options shows you listening sockets. Those are sockets where your host is listening for inbound connections:
+The `-l` options shows you listening sockets. Those are sockets where your host is listening for inbound connections:
 
 ```
 $ netstat -ltnp
@@ -252,5 +236,4 @@ tcp6    0   0 :::111         :::*          LISTEN   -
 tcp6    0   0 :::80          :::*          LISTEN   -       
 ```
 
-The 'p' flag says to list the programs that are listening. You can only do that for processes that you own (unless you're root).
-
+The `-p` flag says to list the programs that are listening. You can only do that for processes that you own (unless you're root).

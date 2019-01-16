@@ -1,5 +1,5 @@
 
-Commands
+#### Commands
 
   * ip
   * hostname
@@ -7,7 +7,7 @@ Commands
   * ssh
   * scp
 
-Configuration
+#### Configuration
 
   * /etc/network/interfaces
   * /etc/hostname
@@ -23,46 +23,27 @@ Having a static IP address is not strictly required for SSH access, but it makes
 
 [http://www.lifealgorithmic.com/home/cis-191/ip-address-assignments](ip_address_assignments)
 
-This step guides you through assigning your address to your VM.Your VM has an IPv4 address assigned by DHCP and an IPv6 address assigned by SLAAC. Those protocols are covered more extensively in [CIS-192](../cis_192). You can see what addresses you have assigned using the 
-```
-ip
-```
-
- command:
+This step guides you through assigning your address to your VM.Your VM has an IPv4 address assigned by DHCP and an IPv6 address assigned by SLAAC. Those protocols are covered more extensively in CIS-192. You can see what addresses you have assigned using the `ip` command:
 
 ```
-
 $ ip addr
-1: 
-lo
-: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default
-  link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-  
-inet 127.0.0.1/8 scope host lo
-   valid_lft forever preferred_lft forever
-  
-inet6 ::1/128 scope host
-   valid_lft forever preferred_lft forever
-2: 
-ens160
-: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
-  link/ether 00:50:56:bd:03:e3 brd ff:ff:ff:ff:ff:ff
-  
-inet 172.20.4.220/16 brd 172.20.255.255 scope global ens160
-   valid_lft forever preferred_lft forever
-  
-inet6 2607:f380:80f:f830:250:56ff:febd:3e3/64 scope global dynamic
-   valid_lft 2591924sec preferred_lft 604724sec
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default
+  link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00  
+  inet 127.0.0.1/8 scope host lo
+    valid_lft forever preferred_lft forever  
+  inet6 ::1/128 scope host
+    valid_lft forever preferred_lft forever
+2: ens160: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+  link/ether 00:50:56:bd:03:e3 brd ff:ff:ff:ff:ff:ff  
+  inet 172.20.4.220/16 brd 172.20.255.255 scope global ens160
+    valid_lft forever preferred_lft forever
+  inet6 2607:f380:80f:f830:250:56ff:febd:3e3/64 scope global dynamic
+    valid_lft 2591924sec preferred_lft 604724sec
   inet6 fe80::250:56ff:febd:3e3/64 scope link
-   valid_lft forever preferred_lft forever
+    valid_lft forever preferred_lft forever
 ```
 
-I've bolded the interfaces and the IP addresses in the output of 
-```
-ip addr
-```
-
-.
+I've bolded the interfaces and the IP addresses in the output of `ip addr`.
 
 ### Adding an IPv6 Address 
 
@@ -86,31 +67,15 @@ Replace "X" with the last digit(s) of your assigned IP address.
 
 ### Verify Your Address 
 
-Now you should re-run 
-```
-ip addr
-```
-
- to verify that you have set your addresses correctly.
+Now you should re-run `ip addr` to verify that you have set your addresses correctly.
 
 ```
-
-ip addr
+$ ip addr
 ```
 
 ### Making your IP Address Permanent 
 
-The changes you just made will be lost if you reboot. In order to preserve them you must edit the configuration file on Ubuntu that is read when the machine starts. That file is 
-```
-/etc/network/interfaces
-```
-
-. The default 
-```
-interfaces
-```
-
- file looks like this:
+The changes you just made will be lost if you reboot. In order to preserve them you must edit the configuration file on Ubuntu that is read when the machine starts. That file is `/etc/network/interfaces`. The default `/etc/network/interfaces` file looks like this:
 
 ```
 # This file describes the network interfaces available on your system
@@ -142,17 +107,15 @@ iface ens160 inet6 static
  netmask 64
 ```
 
-WARNING: Copy-and-paste introduces subtle errors into your interfaces file. You are better typing this information in manually. Triple check the file. Once you're convinced that you have the right information reboot the VM:
+> **WARNING**: Copy-and-paste introduces subtle errors into your interfaces file. You are better typing this information in manually. Triple check the file. Once you're convinced that you have the right information reboot the VM
 
 ```
-
-reboot
+$ sudo reboot
 ```
 
 If your VM doesn't boot properly it's probably because there's an error in your interfaces file. Run the following command to help you find where your error is:
 
 ```
-
 $ ifup ens160
 /etc/network/interfaces:10: unknown method
 ifup: couldn't read interfaces file "/etc/network/interfaces"
@@ -175,17 +138,16 @@ You can set the hostname too:
 $ sudo hostname newname
 ```
 
-The change isn't permanent. If you want to make the change permanent you must put your new hostname into the /etc/hostname file. It's very important that you also make sure your hostname is listed in /etc/hosts. If it's not you will see funny errors when you run the sudo command. The hosts file is discussed in the next section.
+The change isn't permanent. If you want to make the change permanent you must put your new hostname into the `/etc/hostname` file. It's very important that you also make sure your hostname is listed in `/etc/hosts`. If it's not you will see funny errors when you run the sudo command. The hosts file is discussed in the next section.
 
 ## The Hosts File 
 
-Before there was such a thing as DNS every hostname of every computer on the entire Internet was listed in a file /etc/hosts. A copy of that file was placed on every computer and someone was responsible for keeping it maintained. That system has obvious problems with scale but instead of being replaced, DNS just adds a layer on top of it. Your /etc/hosts file is still a piece configuration. Even Microsoft Windows has a hosts file it's located in C:\Windows\System32\drivers\etc\hosts. Here's an example of a hosts file from your VMs:
+Before there was such a thing as DNS every hostname of every computer on the entire Internet was listed in a file `/etc/hosts`. A copy of that file was placed on every computer and someone was responsible for keeping it maintained. That system has obvious problems with scale but instead of being replaced, DNS just adds a layer on top of it. Your `/etc/hosts` file is still a piece configuration. Even Microsoft Windows has a hosts file it's located in `C:\Windows\System32\drivers\etc\hosts`. Here's an example of a hosts file from your VMs:
 
 ```
-127.0.0.1 
-localhost
-127.0.1.1
-ubuntu-server
+127.0.0.1  localhost
+127.0.1.1  ubuntu-server
+
 # The following lines are desirable for IPv6 capable hosts
 ::1   ip6-localhost ip6-loopback
 fe00::0 ip6-localnet
@@ -194,7 +156,7 @@ ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 ```
 
-The hosts file is where the special name "localhost" gets its meaning. Also, by adding the name of your computer to the hosts file Linux ensures you'll be able to refer to your computer by name even if it doesn't have a DNS entry. The hosts file takes precedence over DNS so if you place a host name in there Linux will use it without question. Be careful when you do that because it can cause some very hard to find problems.
+The hosts file is where the special name `localhost` gets its meaning. Also, by adding the name of your computer to the hosts file Linux ensures you'll be able to refer to your computer by name even if it doesn't have a DNS entry. The hosts file takes precedence over DNS so if you place a host name in there Linux will use it without question. Be careful when you do that because it can cause some very hard to find problems.
 
 ## Using SSH 
 
@@ -205,33 +167,28 @@ How you use SSH depends on your workstation's OS. Here are brief instructions fo
 Linux and MacOs have native SSH clients. You can SSH into your machine from the command line:
 
 ```
-
 $ ssh student@<vm-name>
 ```
 
 You can also copy files from the command line:
 
 ```
-
 $ scp <source> <destination>
 ```
 
 Examples:
 
 ```
-
 Copy a file to your VM:
-
 $ scp /path/to/myfile student@<vm-name>:/path/to/destination
-Copy a file file from your VM:
 
+Copy a file file from your VM:
 $ scp student@<vm-name>:/path/to/file /path/to/local/destination
 ```
 
 On Linux you can use nautilus or your favorite file manager to browse remote files just like they were local. In your file manager enter your VM as a file URL:
 
 ```
-
 ssh://student@<vm-name>/path
 ```
 
@@ -245,17 +202,15 @@ Windows doesn't have a native SSH client. There are two programs you can downloa
 
   - [FileZilla](https://filezilla-project.org/)- Uses SFTP to move files
 
-WARNING: IF YOU DOWNLOAD FILEZILLA FROM SOURCEFORGE THE INSTALLER CONTAINS MALWARE.I recommend that you download the ZIP file, not the Windows installer. When you use drag-and-drop from FileZilla be sure to enter port number 22 at the top of the window. Otherwize FileZilla will attempt old-style insecure FTP.
-
 ### IPv4 or IPv6 
 
 If you are inside of the CIS network (in rooms 828, 829 or the CIS area of the STEM center) you can access your VM directly via IPv4. If you're outside of the CIS network you may be able to access your VM directly depending on whether your Internet provider gives you an IPv6 address or not. Here's how to tell:
 
 ```
-
 On Windows Command Prompt:
 
 > ipconfig /all
+
 On Mac/Linux:
 
 $ ip addr
@@ -268,29 +223,19 @@ If you see an IPv6 address that begins with the number "2" then you're all good 
 If you are directly connected you can login to your VM directly with SSH:
 
 ```
-
-you@yourmachine# ssh student@<vm-name>
-
- 
+you@yourmachine# ssh student@<vm-name> 
 <enter funny Cabrillo>
-
-student@ubuntu#
+student@ubuntu$
 ```
 
 If you are not directly connected you must login via Opus:
 
 ```
 
-you@yourmachine# ssh -p 2220 <my-unix-username>@opus.cis.cabrillo.edu
-
- 
+you@yourmachine# ssh -p 2220 <my-unix-username>@opus.cis.cabrillo.edu 
 <enter your UNIX password>
-
-you191@opus# ssh student@<vm-name>
-
- 
+you191@opus# ssh student@<vm-name> 
 <enter funny Cabrillo>
-
 student@ubuntu#
 ```
 
@@ -298,12 +243,11 @@ Use one of the above procedures to login to your VM.
 
 ## Transferring Files 
 
-Transferring files will be important for this class. You should know this procedure by heart. Unfortunately if you're using IPv4 like me there's extra steps. For this lab you'll bring the /etc/issue.net file onto your local computer, edit it and put it back. Be careful to follow these steps exactly.
+Transferring files will be important for this class. You should know this procedure by heart. Unfortunately if you're using IPv4 like me there's extra steps. For this lab you'll bring the `/etc/issue.net` file onto your local computer, edit it and put it back. Be careful to follow these steps exactly.
 
 ### Direct Method 
 
 ```
-
 Step 1: Copy /etc/issue.net into your current directory:
 you@yourmachine# scp student@<vm-name>:/etc/issue.net . 
 Step 2: Edit the local copy
@@ -317,7 +261,6 @@ student@ubuntu# sudo cp /tmp/issue.net /etc/issue.net
 ### Opus Method 
 
 ```
-
 Step 1: (From Opus) Copy /etc/issue to your Opus home directory
 you191@opus#scp student@<vm-name>:/etc/issue.net .
 Step 2: Copy issue.net to your workstation (note the capital -P)
@@ -330,7 +273,6 @@ Step 5: Put the new Opus copy into a temporary location on your VM
 you191@opus# scp issue.net student@<vm-name>:/tmp/
 Step 6: Move it back to /etc (note this is done from your VM)
 student@ubuntu# sudo cp /tmp/issue.net /etc/issue.net
-
 ```
 
 Take a screenshot of the issue.net file on the desktop of your home computer.
@@ -338,8 +280,7 @@ Take a screenshot of the issue.net file on the desktop of your home computer.
 ## Lab Questions 
 
   - What is the IP address and hostname of your VM?
-
-  - List, in order, the machine and directory locations that your issue.net file traveled through in order for you to edit it. Use absolute paths, including for Mac and Windows if that's what you used.
+  - List, in order, the machine and directory locations that your `issue.net` file traveled through in order for you to edit it. Use absolute paths, including for Mac and Windows if that's what you used.
 
 Turn in the answers to your lab questions on Canvas.
 
@@ -348,11 +289,4 @@ Turn in the answers to your lab questions on Canvas.
   - A screenshot of issue.net on the desktop of your home computer.
   - Answers to the questions
 
-IMPORTANT: Leave your VM powered on. I will ping it during the grading.
-
-## Grading 
-
-  * 5 points showing that you have successfully moved issue.net
-  * 10 points for answers to the questions.
-  * 5 points if your VM is pingable on the assigned address.
-
+> **IMPORTANT**: Leave your VM powered on. I will ping it during the grading.

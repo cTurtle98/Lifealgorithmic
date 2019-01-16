@@ -1,4 +1,5 @@
 Logical Volume Management is a system in Linux that allows administrators to use cutting-edge technology to manage disks. Unlike partitioning, which splits up storage, LVM brings multiple disks together to form flexible filesystems with advanced features.
+
 The lecture slides are [here](https://docs.google.com/presentation/d/1I4kyMxPvxxV5tUbKZPU_rQgn5WyJIdly-E8jOd2TXpE/edit?usp=sharing).
 
 ### Commands 
