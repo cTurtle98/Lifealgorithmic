@@ -1,4 +1,6 @@
-In this lesson you'll create a simple web application from scratch and "containerize" it. Lecture slides are [here](https://docs.google.com/presentation/d/1AesHs7txbJ0W6lhle0WuCFpDnkrm9Sgv4szmLKFV6aQ/edit?usp=sharing).
+In this lesson you'll create a simple web application from scratch and "containerize" it. 
+
+Lecture slides are [here](https://docs.google.com/presentation/d/1AesHs7txbJ0W6lhle0WuCFpDnkrm9Sgv4szmLKFV6aQ/edit?usp=sharing).
 
 ### Commands 
 
@@ -38,7 +40,7 @@ router$ sudo ip6tables -I FORWARD 1 -m state --state NEW -p tcp -d app-server-ip
 
 With the firewall rule established you will be able to connect to your web server with your browser if you're on the CIS network or you have IPv6 at home. When you put an IPv6 address into the browser you need to use square brackets. Like this:
 
-``` 
+```
 http://[ipv6-address-goes-inside-of-brackets]/
 ```
 
@@ -48,7 +50,9 @@ If you don't have IPv6 and you want to test your connection you can use an IPv6 
   * [http://ipv6proxy.org/](http://ipv6proxy.org/)
 
 Those sites let you type in an IPv6 address and they will load the page for you.
-  WARNING: DO NOT USE IPv6 PROXIES FOR ANY PERSONAL BROWSING.THEY ARE INSECURE.
+
+> **WARNING**: DO NOT USE IPv6 PROXIES FOR ANY PERSONAL BROWSING.THEY ARE INSECURE.
+
 Typing your IPv6 address every time is a pain. Next you will setup an name for your server in DNS. Don't forget to save your firewall rules!
 
 ### Setup DNS 
@@ -74,7 +78,7 @@ router$ dig AAAA www.mydomain.cis.cabrillo.edu @localhost
 If you get an answer you should now be able to browse to your webserver directly:
 
 ```
-  http://www.mydomain.cis.cabrillo.edu/
+http://www.mydomain.cis.cabrillo.edu/
 ```
 
 But what about the "naked" domain? Most of time we go to "amazon.com" not "www.amazon.com." The concept of a "naked" domain is a problem for DNS. The way domains handle it is against the standard, but it's so common now that it just works everywhere. To make entering the domain address reach the webserver you must add the following record.
@@ -83,10 +87,10 @@ But what about the "naked" domain? Most of time we go to "amazon.com" not "www.a
 @ IN AAAA <your-app-server-ipv6-address>
 ```
 
-After reloading your DNSconfiguration(with the updated serial number) you should be able to access your web server this way:
+After reloading your DNS configuration (with the updated serial number) you should be able to access your web server this way:
 
 ```
-  http://mydomain.cis.cabrillo.edu/
+http://mydomain.cis.cabrillo.edu/
 ```
 
 You're now on the Internet for real.
@@ -102,7 +106,7 @@ $ cd ~/HelloService
 
 Now copy the code from this Python file into the directory:
 
-```
+```python
 from flask import Flask
 import subprocess
 import sys
@@ -186,10 +190,8 @@ app-server$ docker build -t hello-service:latest .
 Your container will take a little while to build. Notice what's happening:
   - The container starts with the base Ubuntu image. If you followed last week's instructions you should have it downloaded already. If not it will download automatically.
   - The RUN commands are executed when you build a container. They:
-
   - run apt-get to fetch pip, just like you did on your VM
   - run pip3 to install flask, just like you did on your VM
-
   - Copy the contents of the current directory into your container.
 
 The process will take a while. Rerun the command. It takes almost no time. That's because Docker makes a snapshot of your container after each RUN command. When you rebuild the container it uses the cached snapshots so that apt-get and pip3 do not have to be rerun! 
@@ -218,7 +220,7 @@ app-server$ docker run --name hello-instance -p 80:5000 hello-service:latest
 
 Here's what the options do:
 
-  * --name gives your instance a name. If you don't specify a name one will be automatically assigned, like "semiotic-abbey"\
+  * --name gives your instance a name. If you don't specify a name one will be automatically assigned, like "semiotic-abbey"
   * -p 80:5000 tells docker to proxy connections on the local port 80 to the container's port 5000
   * hello-service:latest is the container image to launch.
 
@@ -235,10 +237,7 @@ tcp6    0   0 :::22          :::*          LISTEN   1380/sshd
 
 Test that you can see the hello app from your browser. Remember, if you don't have IPv6 at home you'll need to use a proxy service as shown above. Here's a screenshot of connecting to my hello-app from home:
 
-
-![image](../images/screenshot_from_2017_04_23_10_20_10722e.png)
-
-
+![image](../_static/images/screenshot_from_2017_04_23_10_20_10722e.png)
 
 Congratulations you now have a running microservice!
 
