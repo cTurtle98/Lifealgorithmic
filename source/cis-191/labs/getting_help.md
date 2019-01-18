@@ -5,9 +5,6 @@ In this lab you will explore the different answers you get when you ask for help
 In class I demonstrated how to install Linux into a Virtual Machine on Windows. Though I will assign you a virtual machine for class assignments after the first class, you should practice installing Linux yourself. Installing Linux is easy and you can choose any variant you like. If you don't have virtualization software for your computer already you can get software here:
 
   * https://www.virtualbox.org/wiki/VirtualBox
-  * https://www.vmware.com/products/player/playerpro-evaluation.html
-
-Of course, if you're using Linux already you can simply install the virt-manager package. 
 
 When you have Linux installed take a screenshot of your virtual machine and submit it with this lab.  
 
