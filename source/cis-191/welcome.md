@@ -14,7 +14,7 @@ When you're performing a task that requires making multiple changes always chang
 
 ## Am I Ready for CIS-191?
 
-There is a lot of information in CIS-90 that I count on people to know. Don't worry if your skills are a little rusty because you haven't used Linux in a Â while, but you should be able to answer the following questions:
+There is a lot of information in CIS-90 that I count on people to know. Don't worry if your skills are a little rusty because you haven't used Linux in a while, but you should be able to answer the following questions:
 
   * What is the difference between an absolute and a relative path?
   * What program(s) do you use to edit a text file from the command line?
@@ -30,5 +30,5 @@ There is a lot of information in CIS-90 that I count on people to know. Don't wo
   * How do I copy files from my Windows or Mac computer to my Linux VM?
   * How do you get help for a command?
 
-If you feel confident with **two thirds** of those at least you're probably ready for CIS-191. If you think you're a little shaky on those, come talk to me.
+If you feel confident with **two thirds** of those at least you're probably ready for CIS-191. If you think you're not sure, come talk to me.
 

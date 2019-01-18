@@ -1,12 +1,6 @@
-In this lab you will explore the different answers you get when you ask for help.
+# Getting Help
 
-# Hands On  
-
-In class I demonstrated how to install Linux into a Virtual Machine on Windows. Though I will assign you a virtual machine for class assignments after the first class, you should practice installing Linux yourself. Installing Linux is easy and you can choose any variant you like. If you don't have virtualization software for your computer already you can get software here:
-
-  * https://www.virtualbox.org/wiki/VirtualBox
-
-When you have Linux installed take a screenshot of your virtual machine and submit it with this lab.  
+There's a wealth of information and help available for Linux. Good admins know how to get answers quickly. 
 
 # Get Help 
 
