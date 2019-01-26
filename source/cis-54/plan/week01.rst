@@ -1,4 +1,7 @@
 **Welcome**
 
 :Pages:
+  | `Presentation <https://drive.google.com/open?id=1HSCRo_aQwN5m2PjArJzpOyu53wHXtNLwJCTobv7lQs4>`_
   | `Account Access FAQ <faq.html>`_
+:Labs:
+  | `Install MySQL Workbench <cis-54/get_mysql_workbench.html>`_
