@@ -5,7 +5,7 @@ Account Access FAQ
 .. contents:: Questions
    :local:
 
-What's My Username and Password?
+What's My username and password?
 --------------------------------
 
 Your username and password are a combination of your name and your student ID.
@@ -109,7 +109,7 @@ When is my homework due?
 
 Due dates are in Canvas.
 
-How do I Access Canvas?
+How do I access Canvas?
 -----------------------
 
 Canvas is located at:
