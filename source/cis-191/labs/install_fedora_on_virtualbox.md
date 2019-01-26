@@ -1,6 +1,6 @@
 # Install Fedora 
 
-In this lab you'll install Fedora Linux into VirtualBox. Installing Linux from scratch is good practice, but not usually how Linux is installed. Because most Linuxes run in VMs tools like Vagrant are popular because they take most of the work out of installing Linux. 
+In this lab you'll install Fedora Linux into VirtualBox. Installing Linux from scratch is good practice, but not usually how Linux is installed. Because most Linuxes run in VMs, tools like Vagrant are popular because they take most of the work out of installing Linux. 
 
 Follow the instructions in this tutorial:
 

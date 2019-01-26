@@ -1,12 +1,14 @@
 TBA (To Be Arranged) Lab Hours
 ------------------------------
 
-This course meets weekly at the times shown in the Cabrillo Schedule of Classes and above. In addition each student is required to spend lab time every week in either the CIS Lab (room 830) or online using the CIS VLab. Students may choose the time and day for their TBA Lab Hours where they will work on lab assignments designed to give them practical hands-on experience and continue the learning process. These TBA lab hours are required, tracked, and graded. It is the student's responsibility to complete the TBA lab hours, which start on Week 1 of the term, and record their attendance. Tip: A great time to do TBA lab hours is in the CIS Lab when the instructor is there. If that is not possible, questions can always be posted on the electronic help forum which is monitored by the instructor.
+This course meets weekly at the times shown in the Cabrillo Schedule of Classes and above. In addition each student is required to spend lab time every week in either the CIS Lab (room 830) or online using one of the online accounts issued to you. Students may choose the time and day for their TBA Lab Hours where they will work on lab assignments designed to give them practical hands-on experience and continue the learning process. These TBA lab hours are required and tracked. It is the student's responsibility to complete the TBA lab hours, which start on Week 1 of the term. Tip: A great time to do TBA lab hours is in the CIS Lab during my STEM hours. If that is not possible, questions can always be posted on the class discussion group.
 
-Late Work Will Not Be Accepted
-------------------------------
+Class Pacing and Due Dates
+--------------------------
 
-Homework is due one hour before class on the calendar date where the homework is listed.Please complete all assignments on time as they will not be accepted if they are late. This will help both the student and instructor keep the class moving and avoid log jams at the end of the term. If an assignment is not complete by the deadline it is better to make an incomplete submission for partial credit than no submission at all. There may be extra credit work for students needing extra points.
+Assignments are due most weeks during the term. Each class builds on the previous class so it's important to keep up with the assignments. Keeping pace with the lectures will help you get the most out of in-class lab activities. However, I would much rather you do an assignment late than not at all. Late work will be accepted until a reasonable amount of time before the end of the semester. There will be a nominal penalty for late assignments.
+
+*If you have an emergency that prevents you from submitting assignments on time, please email me for an accommodation.*
 
 Classroom Etiquette
 -------------------
