@@ -2,6 +2,18 @@
 Account Access FAQ
 ==================
 
+.. raw:: html
+
+   <style>
+   .section {
+        padding-top: 5em;
+        padding-bottom: 5em;
+   }
+   #account-access-faq {
+        margin-bottom: 50em;
+   }
+   </style>
+
 .. contents:: Questions
    :local:
 
@@ -40,11 +52,11 @@ Your username and password are used for:
 * `Cloud9 IDE <https://957903271915.signin.aws.amazon.com/console>`_
 * `NetLab+ Server <https://openlab.bayict.cabrillo.edu/>`_ (Username only)
 * Opus
-  
+
 How do I access Opus?
 ---------------------
 
-You access opus using the SSH protocol. SSH allows you to run commands on the Linux command line as well as transfer files back and forth. 
+You access opus using the SSH protocol. SSH allows you to run commands on the Linux command line as well as transfer files back and forth.
 
 How do I get a command line on Opus?
 ------------------------------------
@@ -83,8 +95,8 @@ Follow this link:
 
 * https://vcentre.cis.cabrillo.edu/ui/
 
-We used a self-singed certificate so it's safe to ignore the security warning. 
- 
+We used a self-singed certificate so it's safe to ignore the security warning.
+
 How do I access Netlab+?
 ------------------------
 
@@ -95,7 +107,7 @@ Follow this link:
 What's my Netlab+ username and password?
 ----------------------------------------
 
-Your username will be the same as the one in the first answer. You will have an initial password of `Cabri11o`, which you will have to change when you first log in. 
+Your username will be the same as the one in the first answer. You will have an initial password of `Cabri11o`, which you will have to change when you first log in.
 
 How do I access Cloud9 IDE?
 ---------------------------
@@ -103,6 +115,14 @@ How do I access Cloud9 IDE?
 Follow this link:
 
 * https://957903271915.signin.aws.amazon.com/console
+
+What AWS region is my Cloud9 IDE in?
+------------------------------------
+
+Your region is determined by the first letter of your AWS username.
+
+:A-M: US West (Oregon)
+:N-Z: US East (Ohio)
 
 When is my homework due?
 ------------------------
