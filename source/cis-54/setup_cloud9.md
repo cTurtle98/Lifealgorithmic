@@ -32,7 +32,7 @@ The output should look like this:
 Now execute this command to set the location of course content:
 
 ```bash
-cd ~ && echo "https://s3-us-west-2.amazonaws.com/notebooks-course-content/cis-15/content.tar.gz" > .course
+cd ~ && echo "https://s3-us-west-2.amazonaws.com/notebooks-course-content/cis-54/content.tar.gz" > .course
 ```
 
 ### Step 3: Run the Updater

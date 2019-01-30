@@ -9,8 +9,8 @@ Mike Matera - CIS @ Cabrillo College
 .. raw:: html
 
    <div class="jumbotron">
-   <h2>Spring Semester Begins on <b>January 28th</b></h2>
-   <a href="https://wave.cabrillo.edu" target="_blank">Regsiter on WebAdvisor</a>
+   <h2>Check your email!</h2>
+   A link to the first day teleconfernece was sent on Thursday.
    </div>
 
    <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
@@ -20,9 +20,9 @@ Spring 2019 Classes
 
 These are the classes I'm teaching in the Spring. You can find course pages using the menu at the top of the page. 
 
-- CIS 15 - Introduction to Cloud Programming in Python
-- CIS 54 - Introduction to Client/Server Relational Database Management Systems
-- CIS 191 - UNIX/Linux Server Administration
+- `CIS 15 - Introduction to Cloud Programming in Python <cis-15a.html>`_
+- `CIS 54 - Introduction to Client/Server Relational Database Management Systems <cis-54.html>`_
+- `CIS 191 - UNIX/Linux Server Administration <cis-191.html>`_
 
 
 .. raw:: html
