@@ -1,4 +1,5 @@
-WARNING: IMPORTANT NETWORK PARAMETERS HAVE CHANGED BECAUSE OF AN UNFORSEEN NETWORK FLAW. WATCH THE LECTURE FOR DETAILS BEFORE YOU START.
+> WARNING: IMPORTANT NETWORK PARAMETERS HAVE CHANGED BECAUSE OF AN UNFORSEEN NETWORK FLAW. WATCH THE LECTURE FOR DETAILS BEFORE YOU START.
+
 This page will help you get Router Advertisement (RA) and Stateless Address Autoconfiguration (SLAAC) working on your router.
 Lecture slides are [here](https://docs.google.com/presentation/d/1zO7pIglYaegFsGGOsybzQQUtbEZypmS_fEd2nsS7UZI/edit?usp=sharing).
 
@@ -14,16 +15,6 @@ Lecture slides are [here](https://docs.google.com/presentation/d/1zO7pIglYaegFsG
   * /etc/rc2.d/S20wide-dhcpv6-client
   * /etc/sysctl.conf
 
-Contents
-  - [1 Commands](#TOC_Commands)
-  - [1.1 Configuration](#TOC_Configuration)
-
-  - [2 Introduction](#TOC_Introduction)
-  - [3 Before You Begin](#TOC_Before_You_Begin)
-  - [4 Using DHCPv6](#TOC_Using_DHCPv6)
-  - [5 Setting up Router Advertisements](#TOC_Setting_up_Router_Advertisements)
-  - [6 Testing It Out](#TOC_Testing_It_Out)
-
 ## Introduction 
 
 Router configuration is much simpler with IPv6 than it has been in the past. These instructions will show you how to use your router to get a pool of addresses (called a prefix) from a DHCP server then advertise that prefix to downstream machines. This process will give all of your VMs a direct connection to the Internet with real, routable addresses. In the (hopefully near) future your home DSL/Cable routers will enable this feature so that your home devices can take full advantage of the Internet.
@@ -38,12 +29,7 @@ $ sudo service wide-dhcpv6-client restart
 * Starting WIDE DHCPv6 client dhcp6c               [fail]
 ```
 
-You will find the cause of the error in 
-```
-/var/log/syslog
-```
-
-. You should keep a window open for the sole purpose of running this command which will continuously monitor your system log:
+You will find the cause of the error in `/var/log/syslog`. You should keep a window open for the sole purpose of running this command which will continuously monitor your system log:
 
 ```
 $ tail -f /var/log/syslog
@@ -60,8 +46,6 @@ router$ sudo apt-get install wide-dhcpv6-client
 ```
 
 The installer will ask you what network interfaces the client should send requests on. Change eth0 toens160. The default configuration won't work. You must alter the configuration to look like this:
-
-```
 
 ```
 ##
@@ -126,9 +110,7 @@ Run the journalctl command to see what the problem is. DO NOT attempt to move fo
 router$ ifconfig ens192
 ens192  Link encap:Ethernet HWaddr 00:50:56:af:7d:a3 
      inet addr:10.192.0.1 Bcast:10.192.255.255 Mask:255.255.0.0
-     inet6 addr: 
-2607:f380:80f:f901::1
-/64 Scope:Global
+     inet6 addr: 2607:f380:80f:f901::1/64 Scope:Global
      inet6 addr: fe80::250:56ff:feaf:7da3/64 Scope:Link
      UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
      RX packets:44565 errors:0 dropped:60 overruns:0 frame:0
@@ -152,25 +134,16 @@ The radvd program will not start automatically. It waits for you to configure it
 ```
 ## this is /etc/radvd.conf
 interface ens192
-{
+{ 
+  AdvSendAdvert on;
+  prefix ::/64  
+  {
+    AdvOnLink on;
+    AdvAutonomous on;
  
-AdvSendAdvert on;
- 
-prefix ::/64 
- 
-{
- 
- 
-AdvOnLink on;
- 
- 
-AdvAutonomous on;
- 
-};
-  RDNSS
-2607:f380:80f:f425::252 2607:f380:80f:f425::253
- 
-{
+  };
+  RDNSS 2607:f380:80f:f425::252 2607:f380:80f:f425::253
+  {
   };
 };
 ```
@@ -182,7 +155,7 @@ This simple and generic configuration says to use the upper 64 bits of the addre
 router$ cat /proc/sys/net/ipv6/conf/all/forwarding
 0
 # Turn on forwarding
-router$echo 1 | sudo tee /proc/sys/net/ipv6/conf/all/forwarding
+router$ echo 1 | sudo tee /proc/sys/net/ipv6/conf/all/forwarding
 ```
 
 Changing things in the /proc filesystem changes them in memory only. If you want the change to be permanent you have to edit the file /etc/sysctl.conf and uncomment the following line:

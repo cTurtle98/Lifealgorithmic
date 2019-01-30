@@ -2,4 +2,4 @@
 
 :Reading: Chapter 1
 :Pages:
-  | `Presentation <https://drive.google.com/open?id=1LTY82_6fC19LQFKmaWlXedz-zjE7y18peKfLwTWyuYU>`_
+  | `Week 2 Presentation <https://drive.google.com/open?id=1LTY82_6fC19LQFKmaWlXedz-zjE7y18peKfLwTWyuYU>`_
