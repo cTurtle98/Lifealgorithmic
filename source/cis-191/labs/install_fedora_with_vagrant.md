@@ -53,7 +53,7 @@ Vagrant drives VirtualBox. The VirtualBox application doesn't have to be open fo
 
 You can shutdown your Fedora VM from inside of Fedora or VirtualBox. You can also shut it down using the command:
 
-``` 
+```
 $ vagrant halt
 ```
 

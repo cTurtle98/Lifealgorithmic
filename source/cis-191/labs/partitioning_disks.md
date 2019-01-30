@@ -3,14 +3,12 @@ In this lab you will follow the instructions on the page [Disk Partitioning](dis
 Install the btrfs-tools package. You'll need it to be able to format a btrfs filesystem:
 
   
-``` 
+```
 sudo apt-get install btrfs-tools
 ```
 
-  - Create a GPT disk label on /dev/sdb
-  
+  - Create a GPT disk label on /dev/sdb  
   - Make five 2GB partitions on /dev/sdb with types
-
   - ext2
   - ext3
   - ext4
