@@ -11,7 +11,7 @@ CIS 191 - Spring 2019
  | (Optional)
  | UNIX and Linux System Administration Handbook (4th Edition)
  | ISBN: `978-0131480056 <https://www.google.com/search?q=978-0131480056>`_
-:Links: `Canvas <https://cabrillo.instructure.com>`_
+:Links: `Canvas <https://cabrillo.instructure.com/courses/15330>`_
 
 Course Calendar
 ----------------

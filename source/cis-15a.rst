@@ -13,7 +13,7 @@ Sections 1 (Online) and 2 (Aptos)
  | Starting out with Python (Optional)
  | ISBN-13 `978-0134444321 <https://www.google.com/search?q=978-0134444321>`_
 :Links:
- | `Canvas <https://cabrillo.instructure.com>`_
+ | `Canvas <https://cabrillo.instructure.com/courses/14260>`_
  | `Cloud9 IDE <https://957903271915.signin.aws.amazon.com/console>`_
 
 Course Calendar
