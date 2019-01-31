@@ -17,7 +17,7 @@ Account Access FAQ
 .. contents:: Questions
    :local:
 
-What's My username and password?
+What's my username and password?
 --------------------------------
 
 Your username and password are a combination of your name and your student ID.
@@ -89,7 +89,7 @@ Linux users can do drag-and-drop copies by putting an SSH URL into Nautilus like
 `Filezilla <https://filezilla-project.org/>`_ does drag-and-drop for Windows. `Cyberduck  <https://cyberduck.io/>`_ does drag-and-drop for Mac.
 
 How do I access VLab?
-----------------------------------
+---------------------
 
 Follow this link:
 
@@ -115,14 +115,6 @@ How do I access Cloud9 IDE?
 Follow this link:
 
 * https://957903271915.signin.aws.amazon.com/console
-
-What AWS region is my Cloud9 IDE in?
-------------------------------------
-
-Your region is determined by the first letter of your AWS username.
-
-:A-M: US West (Oregon)
-:N-Z: US East (Ohio)
 
 When is my homework due?
 ------------------------
