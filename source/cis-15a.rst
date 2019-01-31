@@ -15,6 +15,7 @@ Sections 1 (Online) and 2 (Aptos)
 :Links:
  | `Canvas <https://cabrillo.instructure.com/courses/14260>`_
  | `Cloud9 IDE <https://957903271915.signin.aws.amazon.com/console>`_
+ | `Roll Call <https://docs.google.com/forms/d/1bhkIRQ8rxCobGydO5DU4qIc9xDTk8_d1hmius6H-bEQ/viewform?usp=send_form>`_
 
 Course Calendar
 ---------------
