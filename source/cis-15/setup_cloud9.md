@@ -25,7 +25,7 @@ cd ~ && wget -q -O - https://github.com/mike-matera/CourseNotebook/archive/maste
 
 The output should look like this:
 
-<img src="../_images/jupyter_initial_setup.png" width="600" />
+<img src="../_static/images/jupyter_initial_setup.png" width="600" />
 
 ### Step 2: Set the Course Location
 
@@ -45,7 +45,7 @@ update
 
 The initial update will take a couple of minutes. After the update is complete you should see the course content in the left pane. 
 
-<img src="../_images/jupyter_setup_complete.png" width="600" />
+<img src="../_static/images/jupyter_setup_complete.png" width="600" />
 
 > Note: The course content changes so this picture might not look exactly like your finished install. 
 
@@ -59,4 +59,4 @@ notebook
 
 The `notebook` command will have output that presents you a URL. Open the URL in Cloud9 by clicking on it and selecting "Open". See the picture below: 
 
-<img src="../_images/jupyter_open_notebook.png" width="600" />
+<img src="../_static/images/jupyter_open_notebook.png" width="600" />
