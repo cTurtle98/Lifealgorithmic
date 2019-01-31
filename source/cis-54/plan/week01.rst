@@ -7,4 +7,4 @@
   | `Install MySQL Workbench <cis-54/get_mysql_workbench.html>`_
   | `Setup Cloud9 IDE <cis-54/setup_cloud9.html>`_
 :Video:
-  | `ConferZoom <https://cccconfer.zoom.us/meeting/152444737>`_
+  | `ConferZoom <https://cccconfer.zoom.us/j/152444737>`_
