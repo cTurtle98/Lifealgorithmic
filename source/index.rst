@@ -8,10 +8,11 @@ Mike Matera - CIS @ Cabrillo College
 
 .. raw:: html
 
+   <!--
    <div class="jumbotron">
-   <h2>Check your email!</h2>
-   A link to the first day teleconfernece was sent on Thursday.
+   <h2>First day video conference links are up!</h2>
    </div>
+   -->
 
    <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
    	 
