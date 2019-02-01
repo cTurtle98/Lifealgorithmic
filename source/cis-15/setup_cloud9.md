@@ -10,7 +10,7 @@ Make sure you know your username and password. You can figure out what they are 
 
 Sign in to AWS using this link: 
 
-> [Cloud9 IDE](https://957903271915.signin.aws.amazon.com/console>)
+> [Cloud9 IDE](https://957903271915.signin.aws.amazon.com/console)
 
 ## Install the Course Files 
 
