@@ -1,19 +1,5 @@
 
-
-.course-basics {
-    max-width: 750px;
-}    
-
-/*
-@media screen and (min-width: 400px) {
-  .course-basics {
-    background-color: lightgreen;
-  }
+.section {
+     padding-top: 1em;
+     padding-bottom: 2em;
 }
-
-@media screen and (min-width: 800px) {
-  .course-basics {
-    background-color: purple;
-  }
-}
-*/
