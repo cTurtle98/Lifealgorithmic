@@ -1,4 +1,4 @@
-## Introduction
+# Accessing your VLab VM 
 
 The purpose of this lab is to establish a connection to your VM and to take control of it as the root user.
 
@@ -43,6 +43,10 @@ password: MiMa7890
 
 ## Your VMs
 
+When you reach the VLab home screen you will see a screen similar to the screenshot below. The screenshot has the "VMs and Templates" link highlighted. Click that link to be able to find the class folder.
+
+<img src="../../_static/images/vcenter-class-folder.png" width="800px"/>
+
 The class folder has a bunch of "StudentXX" folders. Take one for yourself by renaming it to your recognizable name. Do not access other student's VMs. All activity on VMware is logged! Your VMs are new and require initialization. The username on your VM is:
 
 ```
@@ -50,20 +54,8 @@ Username: student
 Password: Cabri11o
 ```
 
-## Procedure
+When you are logged in to your VM's console take a screenshot. 
 
-First you will update two files (you will need to use sudo to become root):
+## Turn In
 
-```
-/etc/issue/etc/issue.net
-```
-These files contain the banner that is issued when you login to your VM. You must personalize it with your name and any other text you like. Please note I will see it!! Once you've completed that you must:
-1. List all of the devices on the PCI bus.
-To Turn In
-  - A screenshot of your updated /etc/issue or /etc/issue.net
-  - A screenshot of your PCI devices.
-
-Grading
-  * 5 points for turning it in on time
-  * 15 points for your screenshots.
-
+  - A screenshot of your Cabrillo VM's console.

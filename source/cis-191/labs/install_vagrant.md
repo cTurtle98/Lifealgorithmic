@@ -43,8 +43,8 @@ $ brew cask install vagrant-manager
 On Ubuntu it's easy to get vagrant running. You can install old-ish versions that will be good enough for this class from the main repositories with the following commands: 
 
 ```
-sudo apt update 
-sudo apt install vagrant virtualbox 
+$ sudo apt update 
+$ sudo apt install vagrant virtualbox 
 ```
 
 ## Other Linuxes and Newer Versions
