@@ -5,7 +5,7 @@ CIS 15 - Spring 2019
 
 Sections 1 (Online) and 2 (Aptos) 
 
-:Time: Wednesdays 2:30pm to 4:35pm
+:Time: Fridays 10:00am to 2:05pm
 :Room: Room 828 Aptos Campus and Online
 :Lab: Open Lab - 1 hour per week TBA
 :Units: 4
