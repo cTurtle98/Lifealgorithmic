@@ -179,7 +179,7 @@ net.ipv6.conf.ens160.accept_ra = 2
 Once you have all of the configuration in place restart the radvd program:
 
 ```
-router$ sudosystemctl status radvd
+router$ sudo systemctl status radvd
 ```
 
 Check to make sure that your router is sending RAs out:
