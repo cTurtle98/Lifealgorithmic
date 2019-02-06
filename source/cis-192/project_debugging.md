@@ -17,15 +17,11 @@ Before you begin this checkup make sure that every VM has all configuration stor
 Each of your machines should have an assigned hostname. Verify that you have set your new hostname in two places: /etc/hostname and /etc/hosts. At this point your hosts files should not have any other than the local host in them. We'll do DNS after spring break:
 
 ```
-
-```
 $ cat /etc/hostname
 router
 ```
 
 The hostname is set to router.
-
-```
 
 ```
 $ cat /etc/hosts
@@ -129,7 +125,6 @@ Your router must have a connection to the internet. It may or may not have names
 
 ```
 $ ping -c 3 localhost
-```
 
 PING localhost (127.0.0.1) 56(84) bytes of data.
 64 bytes from localhost (127.0.0.1): icmp_seq=1 ttl=64 time=0.044 ms
@@ -141,8 +136,6 @@ rtt min/avg/max/mdev = 0.044/0.075/0.136/0.043 ms
 ```
 
 If you can't ping localhost you have a problem with your firewall. Review your firewall rules and make sure they match the ones in[IPTables Howto](ipchains_howto.html). Now check to see if you can ping your router's router. First, find the configured router:
-
-```
 
 ```
 $ ip route
@@ -207,8 +200,6 @@ rtt min/avg/max/mdev = 4.349/4.382/4.411/0.080 ms
 ```
 
 Now with IPv6:
-
-```
 
 ```
 $ ping6 -c 3 2001:4860:4860::8888
