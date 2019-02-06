@@ -347,9 +347,14 @@ User student
 ```
 
 From Tux ssh into each of your hosts and run a simple command like this:
-$ ssh router uname -aLinux router 4.4.0-66-generic #87-Ubuntu SMP Fri Mar 3 15:29:05 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
+```
+$ ssh router uname -a
+Linux router 4.4.0-66-generic #87-Ubuntu SMP Fri Mar 3 15:29:05 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
+```
 If you are not able to connect to your router or your hosts using SSH it's very likely at this point to be a firewall issue. If you can's SSH into your router check the INPUT chain on the router. If you can't SSH into your switch or servers check that the FORWARD chain in the IPv6 firewall allows NEW traffic on port 22. If you're like me, you hate to wast time. You can make it possible to login from Tux without a password by running the command:
+```
 $ ssh-copy-id <host>
+```
 That's it for now. There will be another debugging session on the last day of class.
 
 ## Still Have Problems? 
