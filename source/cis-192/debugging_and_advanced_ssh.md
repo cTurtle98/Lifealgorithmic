@@ -32,8 +32,6 @@ There are two things a good admin does well: Move from host to host and find pro
 SSH can use cryptographic keys to verify your identity. Run the following command on Opus to generate a key pair:
 
 ```
-
-```
 $ ssh-keygen -t rsa -b 4096
 Generating public/private rsa key pair.
 Enter file in which to save the key (/home/robot/.ssh/id_rsa): 
