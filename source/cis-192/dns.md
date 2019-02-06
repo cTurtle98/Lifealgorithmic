@@ -58,8 +58,6 @@ Some examples:
 There are other useful things that dig can do easily. If you want to lookup the name for an IP address you can use the -x option:
 
 ```
-
-```
 dig -x 216.58.216.132
 dig -x 2607:f8b0:400a:806::2004
 ```
@@ -256,7 +254,6 @@ server3.matera.com IN A 1.2.3.6 # Oops! This means "server3.matera.com.matera.co
 
 In order for DNS to work you must let packets headed for UDP/53 through the firewall. Be sure that both IPv6 and IPv4 firewalls have rules. The examples below are how to add rules to your firewall.
 
-```
 
 ```
 # Allow UDP datagrams on port 53
