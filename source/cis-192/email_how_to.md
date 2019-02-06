@@ -41,8 +41,6 @@ infra-server$ sudo apt-get install postfix
 After that you can have Ubuntu set it up with working defaults for you:
 
 ```
-
-```
 infra-server$
 dpkg-reconfigure postfix
 ```
