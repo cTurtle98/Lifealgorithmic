@@ -10,7 +10,7 @@ Take a week to verify that your project is fully operational. After this week th
 
 ### 1. Reboot Every VM 
 
-Before you begin this checkup make sure that every VM has all configuration stored on disk. When I grade you, I'll ask to see the output of 'uptime' so that I know your VMs have recently rebooted. You can reboot them in any order. If all is well they will eventually come back online. \
+Before you begin this checkup make sure that every VM has all configuration stored on disk. When I grade you, I'll ask to see the output of 'uptime' so that I know your VMs have recently rebooted. You can reboot them in any order. If all is well they will eventually come back online.
 
 ### 2. Check Host Names 
 
