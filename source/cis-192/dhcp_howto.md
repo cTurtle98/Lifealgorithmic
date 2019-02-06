@@ -53,11 +53,8 @@ max-lease-time 1200;
 Notice that you have setup your router's IP address at the DNS server. Since your hosts don't yet have IPv4 connectivity they can't use Cabrillo's IPv4 nameservers anyway. Soon your router will run DNS and this will work. These global options are sufficient for your network. A complicated network will have multiple scopes. Yours only has one so there's no real difference between global and local options. Add the following zone to your configuration file:
 
 ```
-subnet 10.192.0.0 netmask 255.255.0.0 { 
-  
-```
-
-option routers 10.192.0.1; 
+subnet 10.192.0.0 netmask 255.255.0.0 {
+  option routers 10.192.0.1; 
   option broadcast-address 10.192.255.255; 
   range 10.192.5.1 10.192.5.100;
 }
