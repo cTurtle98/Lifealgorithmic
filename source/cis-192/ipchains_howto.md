@@ -44,8 +44,6 @@ At this point in the class your IPv6 network is fully functional because there a
 By default Linux doesn't forward packets. You should have already turned on forwarding for IPv6. Before you begin working on your firewall you should double check that you have enabled forwarding for IPv4. To turn on forwarding you use the sysctl command. To turn on forwarding of IPv4 packets:
 
 ```
-
-```
 router$ sudo sysctl -w net.ipv4.ip_forward=1
 ```
 
@@ -160,8 +158,6 @@ router$ sudo ip6tables -A FORWARD -j LOG
 Finally verify that your firewall rules are complete:
 
 ```
-
-```
 router$ sudo iptables -L -n -v
 Chain INPUT (policy DROP 0 packets, 0 bytes)
 pkts bytes target   prot opt in   out   source        destination    
@@ -190,8 +186,6 @@ router$ sudo iptables -P FORWARD DROP
 ```
 
 Don't forget IPv6. Verify that your IPv6 firewall is complete:
-
-```
 
 ```
 router$ ip6tables -L -n -v
